@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_hide_price>
+            <general>
+                <enabled>0</enabled>
+                <customer_group>0</customer_group>
+                <category>1</category>
+            </general>
+            <information>
+                <hide_price>1</hide_price>
+                <hide_button>1</hide_button>
+                <replace_text>Sign up</replace_text>
+                <replace_link>/customer/account</replace_link>
+                <replace_css>background: #eeeeee;
+                    border: 1px solid #cccccc;
+                    color: #333333;
+                    cursor: pointer;
+                    display: inline-block;
+                    padding: 7px 15px;
+                    margin-right: 15px;
+                    font-size: 1.4rem;
+                    line-height: 1.6rem;
+                </replace_css>
+                <hide_wishlist>1</hide_wishlist>
+                <hide_compare>1</hide_compare>
+            </information>
+            <frontend>
+                <text>Call for Price</text>
+                <custom_css>background: #eeeeee;
+                    border: 1px solid #cccccc;
+                    color: #333333;
+                    cursor: pointer;
+                    display: inline-block;
+                    padding: 7px 15px;
+                    margin-right: 15px;
+                    font-size: 1.4rem;
+                    line-height: 1.6rem;
+                    margin-bottom: 10px;
+                </custom_css>
+                <link>AmastyHidePricePopup</link>
+            </frontend>
+            <reply_email>
+                <enabled>1</enabled>
+            </reply_email>
+            <gdpr>
+                <enabled>0</enabled>
+                <text><![CDATA[I have read & accept the <a target="_blank" href="/privacy-policy">Privacy Policy</a>]]></text>
+            </gdpr>
+            <developer>
+                <addtocart>form[data-role="tocart-form"] button, button.tocart</addtocart>
+                <parent>.product-item, .item, td</parent>
+            </developer>
+        </amasty_hide_price>
+    </default>
+</config>

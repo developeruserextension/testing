@@ -1,0 +1,20 @@
+<div class="file-uploader-summary">
+    <div class="file-uploader-preview amasty-file-uploader-preview">
+        <a class="preview-link"
+           css="'preview-' + $file.previewType"
+           attr="href: $parent.getFileLink($file), title: $file.name" target="_blank">
+            <img
+                    tabindex="0"
+                    event="load: $parent.onPreviewLoad.bind($parent)"
+                    attr="
+                    src: $parent.getFilePreview($file),
+                    alt: $file.name">
+        </a>
+    </div>
+
+    <div class="file-uploader-filename" text="$file.name"/>
+
+    <div class="file-uploader-meta">
+        <text args="$parent.formatSize($file.size)"/>
+    </div>
+</div>

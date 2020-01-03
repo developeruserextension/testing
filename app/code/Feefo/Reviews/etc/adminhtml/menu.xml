@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Feefo_Reviews::options_page" title="Feefo Ratings &amp; Reviews" module="Feefo_Reviews" parent="Magento_Backend::marketing_user_content" sortOrder="10" action="feefo/options/index" resource="Feefo_Reviews::options_page"/>
+    </menu>
+</config>

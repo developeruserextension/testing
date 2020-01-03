@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CommonTests
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminActivatePurchaseOrder">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openPurchaseOrderTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.PurchaseOrderTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.PurchaseOrderTabOpen}}"
+            visible="false"/>
+        <uncheckOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledPurchaseOrder}}"
+            stepKey="uncheckUseSystemValuePurchaseCheckbox"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledPurchaseOrder}}"
+            userInput="1"
+            stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingPurchaseOrder">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openPurchaseOrderTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.PurchaseOrderTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.PurchaseOrderTabOpen}}"
+            visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledPurchaseOrder}}"
+            userInput="0"
+            stepKey="activateMethod"/>
+        <checkOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledPurchaseOrder}}"
+            stepKey="checkUseSystemValuePurchaseCheckbox"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateBankTransferPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openBankTransferTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.BankTransferTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.BankTransferTabOpen}}"
+            visible="false"/>
+        <uncheckOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledBankTransfer}}"
+            stepKey="uncheckUseSystemValueBankCheckbox"/>
+        <wait time="1" stepKey="waitOneSec"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledBankTransfer}}"
+            userInput="1"
+            stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingBankTransferPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openBankTransferTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.BankTransferTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.BankTransferTabOpen}}"
+            visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledBankTransfer}}"
+            userInput="0"
+            stepKey="disableMethod"/>
+        <checkOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledBankTransfer}}"
+            stepKey="checkUseSystemValueBankCheckbox"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateCashOnDeliveryPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openCashOnDeliveryTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.CashOnDeliveryTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.CashOnDeliveryTabOpen}}"
+            visible="false"/>
+        <uncheckOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledCashOnDelivery}}"
+            stepKey="uncheckUseSystemValueCashCheckbox"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledCashOnDelivery}}"
+            userInput="1"
+            stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingCashOnDeliveryPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openCashOnDeliveryTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.CashOnDeliveryTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.CashOnDeliveryTabOpen}}"
+            visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledCashOnDelivery}}"
+            userInput="0"
+            stepKey="disableMethod"/>
+        <checkOption selector="{{AdminPaymentMethodsConfigurationSection.CheckboxUseSystemEnabledCashOnDelivery}}"
+            stepKey="checkUseSystemValueCashCheckbox"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivatePayPalPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.PayPalConfigure}}" stepKey="clickButtonForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.EmailAssociatedWithPayPal}}"
+                   userInput="{{paymentMethodsAccess.emailAssociated}}" stepKey="enterEmailAssociated"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiUsername}}"
+                   userInput="{{paymentMethodsAccess.apiUsername}}" stepKey="enterApiUsername"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiPassword}}"
+                   userInput="{{paymentMethodsAccess.apiPassword}}" stepKey="enterApiPassword"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiSignature}}"
+                   userInput="{{paymentMethodsAccess.apiSignature}}" stepKey="enterApiSignature"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalSandboxMode}}"
+                      userInput="{{paymentMethodsAccess.sandboxMode}}" stepKey="selectValueForSandboxMode"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableThisSolution}}"
+                      userInput="1" stepKey="activateMethod"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalMerchantAccountID}}"
+                   userInput="{{paymentMethodsAccess.merchantAccountID}}" stepKey="enterMerchantID"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivatePayPalPaymentWithDisableInContext">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.PayPalConfigure}}" stepKey="clickButtonForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.EmailAssociatedWithPayPal}}"
+                   userInput="{{paymentMethodsAccess.emailAssociated}}" stepKey="enterEmailAssociated"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiUsername}}"
+                   userInput="{{paymentMethodsAccess.apiUsername}}" stepKey="enterApiUsername"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiPassword}}"
+                   userInput="{{paymentMethodsAccess.apiPassword}}" stepKey="enterApiPassword"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiSignature}}"
+                   userInput="{{paymentMethodsAccess.apiSignature}}" stepKey="enterApiSignature"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalSandboxMode}}"
+                      userInput="{{paymentMethodsAccess.sandboxMode}}" stepKey="selectValueForSandboxMode"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableThisSolution}}"
+                      userInput="1" stepKey="activateMethod"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableInContext}}"
+                      userInput="0" stepKey="DisactiveInContext"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingPayPalPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.PayPalConfigure}}" stepKey="clickButtonForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableThisSolution}}"
+                      userInput="1" stepKey="disableMethod1"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableInContext}}"
+                      userInput="1" stepKey="enableForClearMerchID"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayPalMerchantAccountID}}" stepKey="enterMerchantID"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalEnableThisSolution}}"
+                      userInput="0" stepKey="disableMethod2"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.EmailAssociatedWithPayPal}}"
+                    stepKey="clearEmailAssociated"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiUsername}}"
+                    stepKey="clearApiUsername"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiPassword}}"
+                    stepKey="clearApiPassword"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayPalApiSignature}}"
+                    stepKey="clearApiSignature"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayPalSandboxMode}}"
+            userInput="0" stepKey="disableSandboxMode"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivatePayfloyProPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <conditionalClick stepKey="openOtherPayPalSolution"
+            selector="{{AdminPaymentMethodsConfigurationSection.OtherPayPalSolutionsTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.OtherPayPalSolutionsTabOpen}}"
+            visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.PayflowProConfigure}}" stepKey="clickButtonPayflowForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayflowProEmailAssociated}}"
+            userInput="{{paymentMethodsAccess.emailAssociated}}" stepKey="enterEmailAssociated"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayflowPartner}}"
+            userInput="{{paymentMethodsAccess.partner}}" stepKey="enterPartner"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayflowUser}}"
+            userInput="{{paymentMethodsAccess.user}}" stepKey="enterUser"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayflowVendor}}"
+            userInput="{{paymentMethodsAccess.vendor}}" stepKey="enterVendor"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.PayflowPassword}}"
+            userInput="{{paymentMethodsAccess.password}}" stepKey="enterPassword"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayflowTestMode}}"
+            userInput="{{paymentMethodsAccess.testMode}}" stepKey="selectValueForTestMode"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayflowEnableThisSolution}}"
+            userInput="1" stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingPayflowProPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <conditionalClick stepKey="openOtherPayPalSolution"
+            selector="{{AdminPaymentMethodsConfigurationSection.OtherPayPalSolutionsTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.OtherPayPalSolutionsTabOpen}}"
+            visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.PayflowProConfigure}}" stepKey="clickButtonPayflowForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayflowEnableThisSolution}}"
+                      userInput="0" stepKey="disableMethod"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayflowProEmailAssociated}}"
+                    stepKey="clearEmailAssociated"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayflowPartner}}"
+                    stepKey="clearPartner"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayflowUser}}"
+                    stepKey="clearUser"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayflowVendor}}"
+                    stepKey="clearVendor"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.PayflowPassword}}"
+                    stepKey="clearPassword"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.PayflowTestMode}}"
+            userInput="0" stepKey="disableTestMode"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateBraintreePayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.BraintreeConfigure}}" stepKey="clickButtonForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.BraintreeMerchantID}}"
+            userInput="{{paymentMethodsAccess.merchantID}}" stepKey="enterMerchantID"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.BraintreePublicKey}}"
+            userInput="{{paymentMethodsAccess.publicKey}}" stepKey="enterPublicKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.BraintreePrivateKey}}"
+            userInput="{{paymentMethodsAccess.privateKey}}" stepKey="enterPrivateKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.BraintreeEnablePayPal}}"
+            userInput="{{paymentMethodsAccess.enablePayPal}}" stepKey="selectValueForEnablePayPal"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.BraintreeEnableThisSolution}}"
+            userInput="1" stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingBraintreePayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.BraintreeConfigure}}" stepKey="clickButtonForConfigure"/>
+        <waitForPageLoad time="10" stepKey="waitForPageLoad1"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.BraintreeMerchantID}}"
+                    stepKey="clearMerchantID"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.BraintreePublicKey}}"
+                    stepKey="clearPublicKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.BraintreePrivateKey}}"
+                    stepKey="clearPrivateKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.BraintreeEnablePayPal}}"
+            userInput="0" stepKey="disablePayPal"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.BraintreeEnableThisSolution}}"
+            userInput="0" stepKey="disableMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad2"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateStripePayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openStripeTab"
+            selector="{{AdminPaymentMethodsConfigurationSection.StripeTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.StripeTabOpen}}"
+            visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledStripe}}"
+            userInput="1"
+            stepKey="activateMethod"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.StripePublishableKey}}"
+            userInput="{{paymentMethodsAccess.publishableKey}}" stepKey="enterPublishableKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.StripeSecretKey}}"
+            userInput="{{paymentMethodsAccess.secretKey}}" stepKey="enterSecretKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.StripeMake3DSecure}}"
+            userInput="{{paymentMethodsAccess.make3DSecure}}"
+            stepKey="selectSettingFor3DSecure"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.StripeDebugMode}}"
+            userInput="{{paymentMethodsAccess.debugMode}}"
+            stepKey="selectSettingForDebugMode"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingStripePayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <waitForPageLoad stepKey="waitForConfigLoad"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab1"/>
+        <conditionalClick stepKey="openStripeTab1"
+            selector="{{AdminPaymentMethodsConfigurationSection.StripeTab}}"
+            dependentSelector="{{AdminPaymentMethodsConfigurationSection.StripeTabOpen}}"
+            visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledStripe}}"
+                      userInput="1"
+                      stepKey="enableMethodForClear"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.StripePublishableKey}}"
+                    stepKey="clearPublishableKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.StripeSecretKey}}"
+                    stepKey="clearSecretKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.StripeMake3DSecure}}"
+                      userInput="0"
+                      stepKey="disable3DSecure"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.StripeDebugMode}}"
+                      userInput="0"
+                      stepKey="disableDebugMode"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad stepKey="waitForConfigLoadAfterSave"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.StripeTab}}" stepKey="ScrollToMethodTab2"/>
+        <conditionalClick stepKey="openStripeTab2"
+                          selector="{{AdminPaymentMethodsConfigurationSection.StripeTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.StripeTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EnabledStripe}}"
+            userInput="0"
+            stepKey="disableMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettingsAfterDisable"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateKlarnaPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad1"/>
+        <conditionalClick stepKey="openKMerchantLocation"
+                          selector="{{AdminPaymentMethodsConfigurationSection.MerchantLocationTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.MerchantLocationTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.MerchantCountry}}"
+                      userInput="{{paymentMethodsAccess.merchantCountryForTest}}"
+                      stepKey="chooseMerchantId"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openKlarnaTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaTabOpen}}"
+                          visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.KlarnaConfigure}}" stepKey="clickForConfigure"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad2"/>
+        <conditionalClick stepKey="openKlarnaApiTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiVersion}}"
+                      userInput="{{paymentMethodsAccess.apiVersion}}"
+                      stepKey="chooseApiVersion"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.KlarnaMerchantID}}"
+                   userInput="{{paymentMethodsAccess.merchantId}}" stepKey="enterMerchantID"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.KlarnaPassword}}"
+                   userInput="{{paymentMethodsAccess.password}}" stepKey="enterPassword"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaTestMode}}"
+                      userInput="{{paymentMethodsAccess.testModeValue}}"
+                      stepKey="selectValueTestMode"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaDebugMode}}"
+                      userInput="{{paymentMethodsAccess.debugModeValue}}"
+                      stepKey="selectValueDebugMode"/>
+        <conditionalClick stepKey="openKlarnaPaymentsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaPaymentTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaPaymentTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaEnableThisSolution}}"
+                      userInput="1"
+                      stepKey="enableSolution"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad3"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingKlarnaPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad1"/>
+        <conditionalClick stepKey="openKMerchantLocation"
+                          selector="{{AdminPaymentMethodsConfigurationSection.MerchantLocationTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.MerchantLocationTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.MerchantCountry}}"
+                      userInput="{{paymentMethodsAccess.merchantCountryOld}}"
+                      stepKey="chooseMerchantId"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openKlarnaTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaTabOpen}}"
+                          visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.KlarnaConfigure}}" stepKey="clickForConfigure"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad2"/>
+        <conditionalClick stepKey="openKlarnaApiTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaApiVersion}}"
+                      userInput="kp_eu"
+                      stepKey="chooseDefaultApiVersion"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.KlarnaMerchantID}}"
+                    stepKey="enterMerchantID"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.KlarnaPassword}}"
+                    stepKey="enterPassword"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaTestMode}}"
+                      userInput="1"
+                      stepKey="selectDefaultValueTestMode"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaDebugMode}}"
+                      userInput="1"
+                      stepKey="selectDefaultValueDebugMode"/>
+        <conditionalClick stepKey="openKlarnaPaymentsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.KlarnaPaymentTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.KlarnaPaymentTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.KlarnaEnableThisSolution}}"
+                      userInput="0"
+                      stepKey="disableSolution"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad3"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateAuthorizePayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openAuthorizeTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTabOpen}}"
+                          visible="false"/>
+        <conditionalClick stepKey="openAuthorizeBasicTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeBasicTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AuthorizeBasicTabOpen}}"
+                          visible="false"/>
+        <selectOption stepKey="selectEnvironment"
+                      selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeEnvironment}}"
+                      userInput="{{paymentMethodsAccess.environmentValue}}"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeAPILoginID}}"
+                   userInput="{{paymentMethodsAccess.apiLoginID}}" stepKey="enterApiLoginID"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTransactionKey}}"
+                   userInput="{{paymentMethodsAccess.transactionKey}}" stepKey="enterTransactionKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizePublicClientKey}}"
+                   userInput="{{paymentMethodsAccess.publicClientKey}}" stepKey="enterPublicClientKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTabSignatureKey}}"
+                   userInput="{{paymentMethodsAccess.signatureKey}}" stepKey="enterSignatureKey"/>
+        <uncheckOption selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeCheckboxUseSystemEnabled}}"
+                       stepKey="uncheckUseSystemValueCheckbox"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeEnabled}}"
+                      userInput="1"
+                      stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingAuthorizePayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openAuthorizeTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTabOpen}}"
+                          visible="false"/>
+        <conditionalClick stepKey="openAuthorizeBasicTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeBasicTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AuthorizeBasicTabOpen}}"
+                          visible="false"/>
+        <selectOption stepKey="selectEnviroment"
+                      selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeEnvironment}}"
+                      userInput="production"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeAPILoginID}}"
+                    stepKey="enterApiLoginID"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTransactionKey}}"
+                    stepKey="enterTransactionKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizePublicClientKey}}"
+                    stepKey="enterPublicClientKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeTabSignatureKey}}"
+                    stepKey="enterSignatureKey"/>
+        <uncheckOption selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeCheckboxUseSystemEnabled}}"
+                       stepKey="uncheckUseSystemValueCheckboxForDisable"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeEnabled}}"
+                      userInput="0"
+                      stepKey="activateMethod"/>
+        <checkOption selector="{{AdminPaymentMethodsConfigurationSection.AuthorizeCheckboxUseSystemEnabled}}"
+                       stepKey="checkUseSystemValueCheckbox"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateEWayPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.EWayTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openEWayTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.EWayTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.EWayTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxMode}}"
+                      userInput="{{paymentMethodsAccess.sandboxValue}}"
+                      stepKey="selectSandboxMode"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxAPIKey}}"
+                   userInput="{{paymentMethodsAccess.sandboxApiKey}}" stepKey="enterApiKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxAPIPassword}}"
+                   userInput="{{paymentMethodsAccess.sandboxApiPassword}}" stepKey="enterApiPassword"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxClientEncryptionKey}}"
+                   userInput="{{paymentMethodsAccess.sandboxClientEncryptionKey}}" stepKey="enterClientEncryptionKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EWayEnabled}}"
+                      userInput="1"
+                      stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingEWayPayment">
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.EWayTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openEWayTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.EWayTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.EWayTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxMode}}"
+                      userInput="1"
+                      stepKey="selectSandboxMode"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxAPIKey}}"
+                    stepKey="enterApiKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxAPIPassword}}"
+                    stepKey="enterApiPassword"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.EWaySandboxClientEncryptionKey}}"
+                    stepKey="enterClientEncryptionKey"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.EWayEnabled}}"
+                      userInput="0"
+                      stepKey="activateMethod"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad1"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminActivateAmazonPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad1"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openOtherPaymentMethodsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTabOpen}}"
+                          visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.AmazonConfigure}}" stepKey="clickForConfigure"/>
+        <conditionalClick stepKey="openCredentialsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonCredentialsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonCredentialsTabOpen}}"
+                          visible="false"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AmazonMerchantID}}"
+                   userInput="{{paymentMethodsAccess.merchantId}}" stepKey="enterMerchantID"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AmazonAccessId}}"
+                   userInput="{{paymentMethodsAccess.accessId}}" stepKey="enterAccessId"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AmazonSecretAccessKey}}"
+                   userInput="{{paymentMethodsAccess.secretAccessKey}}" stepKey="enterSecretAccessKey"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AmazonClientId}}"
+                   userInput="{{paymentMethodsAccess.clientId}}" stepKey="enterClientId"/>
+        <fillField selector="{{AdminPaymentMethodsConfigurationSection.AmazonClientSecret}}"
+                   userInput="{{paymentMethodsAccess.clientSecret}}" stepKey="enterClientSecret"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonPaymentRegion}}"
+                      userInput="{{paymentMethodsAccess.paymentRegionForTest}}"
+                      stepKey="choosePaymentRegion"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonSandbox}}"
+                      userInput="{{paymentMethodsAccess.sandboxValue}}"
+                      stepKey="selectSandboxValue"/>
+        <conditionalClick stepKey="openOptionTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonOptionsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonOptionsTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonEnable}}"
+                      userInput="1"
+                      stepKey="enableAmazonPay"/>
+        <conditionalClick stepKey="openAdvancedTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedTabOpen}}"
+                          visible="false"/>
+        <conditionalClick stepKey="openAdvancedFrontendTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedFrontendTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedFrontendTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonShowInPaymentMethods}}"
+                      userInput="1"
+                      stepKey="showInPaymentMethods"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad3"/>
+    </actionGroup>
+
+
+    <actionGroup name="AdminReturnDefaultSettingAmazonPayment">
+        <arguments>
+            <argument name="paymentMethodsAccess"/>
+        </arguments>
+        <amOnPage url="{{AdminPaymentMethodsConfigurationPage.url}}" stepKey="navigateToPaymentMethodsConfiguration"/>
+        <waitForPageLoad time="20" stepKey="waitForPageLoad1"/>
+        <scrollTo selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}" stepKey="ScrollToMethodTab"/>
+        <conditionalClick stepKey="openOtherPaymentMethodsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.OtherPaymentMethodsTabOpen}}"
+                          visible="false"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.AmazonConfigure}}" stepKey="clickForConfigure"/>
+        <conditionalClick stepKey="openCredentialsTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonCredentialsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonCredentialsTabOpen}}"
+                          visible="false"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AmazonMerchantID}}" stepKey="enterMerchantID"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AmazonAccessId}}" stepKey="enterAccessId"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AmazonSecretAccessKey}}" stepKey="enterSecretAccessKey"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AmazonClientId}}" stepKey="enterClientId"/>
+        <clearField selector="{{AdminPaymentMethodsConfigurationSection.AmazonClientSecret}}" stepKey="enterClientSecret"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonPaymentRegion}}"
+                      userInput="{{paymentMethodsAccess.paymentRegionOld}}"
+                      stepKey="choosePaymentRegion"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonSandbox}}"
+                      userInput="0"
+                      stepKey="selectSandboxValue"/>
+        <conditionalClick stepKey="openOptionTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonOptionsTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonOptionsTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonEnable}}"
+                      userInput="0"
+                      stepKey="enableAmazonPay"/>
+        <conditionalClick stepKey="openAdvancedTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedTabOpen}}"
+                          visible="false"/>
+        <conditionalClick stepKey="openAdvancedFrontendTab"
+                          selector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedFrontendTab}}"
+                          dependentSelector="{{AdminPaymentMethodsConfigurationSection.AmazonAdvancedFrontendTabOpen}}"
+                          visible="false"/>
+        <selectOption selector="{{AdminPaymentMethodsConfigurationSection.AmazonShowInPaymentMethods}}"
+                      userInput="0"
+                      stepKey="showInPaymentMethods"/>
+        <click selector="{{AdminPaymentMethodsConfigurationSection.Save}}" stepKey="saveSettings"/>
+        <waitForPageLoad time="30" stepKey="waitForPageLoad3"/>
+    </actionGroup>
+
+</actionGroups>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="feefo_reviews_init_registration_data">
+        <observer name="feefo_reviews_add_store_data_for_registration" instance="Feefo\Reviews\Observer\Feefo\Data\Store\InitRegistrationData" />
+    </event>
+    <event name="feefo_reviews_init_configuration_data">
+        <observer name="feefo_reviews_add_store_data_for_registration" instance="Feefo\Reviews\Observer\Feefo\Data\Store\InitConfigurationData" />
+    </event>
+</config>

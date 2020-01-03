@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amasty_hide_price_admin_email_template"
+              label="Amasty Hide Price Admin Notification"
+              file="amasty_hideprice_admin_notification.html"
+              type="html"
+              module="Amasty_HidePrice"
+              area="frontend"
+    />
+    <template id="amasty_hide_price_reply_email_template"
+              label="Amasty Hide Price Auto Reply"
+              file="amasty_hideprice_auto_reply.html"
+              type="html"
+              module="Amasty_HidePrice"
+              area="frontend"
+    />
+    <template id="amasty_hide_price_general_template"
+              label="Amasty Hide Price Admin Answer"
+              file="amasty_hideprice_admin_answer.html"
+              type="html"
+              module="Amasty_HidePrice"
+              area="frontend"
+    />
+</config>

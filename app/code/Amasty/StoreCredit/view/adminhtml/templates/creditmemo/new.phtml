@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+?>
+<?php
+/**
+ * @var $block \Amasty\StoreCredit\Block\Adminhtml\CreditMemo\NewReturn
+ */
+?>
+<div class="field choice admin__field admin__field-option">
+    <input type="hidden" name="return_to_store_credit" value="0"/>
+    <input id="return_to_store_credit"
+        class="admin__control-checkbox"
+        name="return_to_store_credit"
+        value="1"
+        type="checkbox"
+        <?= ($block->isUseStoreCredit() ? 'checked' : '') ?>/>
+    <label for="return_to_store_credit" class="admin__field-label">
+        <span><?= $block->escapeHtml(__('Refund to Store Credit')) ?></span>
+    </label>
+    <input type="hidden" id="current_store_credit" value="<?= $block->getMaxStoreCredit(); ?>" />
+    <input type="text" name="store_credit_return_amount"
+        value="<?= $block->getMaxStoreCredit(); ?>"
+        class="input-text admin__control-text"
+        id="store_credit_return_amount"
+        data-mage-init='{"Amasty_StoreCredit/js/creditmemo": {"checkbox": "#return_to_store_credit", "button": "#amupdate-prices"}}'
+        <?= ($block->isUseStoreCredit() ? '' : 'disabled') ?>/>
+    <button title="Update Prices" type="button" class="scalable action-secondary" id="amupdate-prices" disabled>
+        <span>Update Prices</span>
+    </button>
+</div>

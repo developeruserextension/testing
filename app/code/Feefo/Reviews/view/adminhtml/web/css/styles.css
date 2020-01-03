@@ -1,0 +1,71 @@
+.page-content {
+    padding: 0;
+}
+
+.frame-wrapper iframe {
+    width: 100%;
+    display: block;
+    height: 100vh;
+}
+
+.feefo-options-heading, .feefo-error-heading {
+    text-align: center;
+    margin: 20px 0 25px;
+}
+
+.websites-list-block .website-list-item {
+    background: #f5f5f5;
+}
+
+.websites-list {
+    list-style-type: none;
+    display: block;
+    margin: 10px auto 40px;
+    width: 182px;
+    border: 1px solid #656565;
+}
+
+.websites-list-block .website-list-item a {
+    display: block;
+    width: 180px;
+    height: auto;
+    padding: 12px 20px;
+    border: 1px solid #656565;
+    text-align: center;
+    background: #f5f5f5;
+}
+
+.websites-list-block .website-list-item a,
+.websites-list-block .website-list-item a:hover,
+.websites-list-block .website-list-item a:visited {
+    color: #656565;
+}
+
+.websites-list-block .website-list-item a:hover {
+    text-decoration: none;
+    color: #454545;
+    background: #e5e5e5;
+}
+
+.feefo-error-wrapper {
+    margin: 10px auto 40px;
+    width: 800px;
+}
+
+.select-another-website {
+    text-align: center;
+    padding: 0 10px 30px;
+}
+
+.select-another-website .button {
+    cursor: pointer;
+}
+
+.websites-list-buttons {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.website-list-item-buttons {
+    margin-bottom: 12px;
+}

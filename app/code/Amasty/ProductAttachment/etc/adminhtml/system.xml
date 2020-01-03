@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amfile" translate="label" type="text" sortOrder="161801" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>Product Attachments</label>
+            <tab>amasty</tab>
+            <resource>Amasty_ProductAttachment::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="add_categories_files" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Add Category Files to Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip><![CDATA[Files will be attached to all category products if YES.<br><br>If NO files will not be attached to the products of the category. But you can display the category attachments with the help of widget]]></tooltip>
+                </field>
+                <field id="exclude_include_in_order_files" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Display `Include In Order` Files on Product Pages and Widgets</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="url_type" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Url Creation Type</label>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\UrlType</source_model>
+                    <comment>ID type URL: http://domain.zone/amfile/download/file/22. Hash type URL: http://domain.zone/amfile/download/file/8a9e07bad0166438b0b64a91b235ca4e</comment>
+                </field>
+            </group>
+            <group id="product_tab" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1"
+                    showInStore="1">
+                <label>Product Tab</label>
+                <field id="block_enabled" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show `Product Attachments` Tab</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>A new tab with product attachments will be added to product tabs on a Product Page</comment>
+                </field>
+                <field id="block_label" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Tab Title</label>
+                    <depends>
+                        <field id="block_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="customer_group" translate="label comment" type="multiselect" sortOrder="42" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Choose Customer Groups to show the Tab</label>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\CustomerGroup</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="block_enabled">1</field>
+                    </depends>
+                    <comment>Don't choose any or select all to show the tab to all customer groups.</comment>
+                </field>
+                <field id="block_fileicon" translate="label" type="select" sortOrder="44" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show File Icon</label>
+                    <depends>
+                        <field id="block_enabled">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="block_filesize" translate="label" type="select" sortOrder="46" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show File Size</label>
+                    <depends>
+                        <field id="block_enabled">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="block_sort_order" translate="label comment" type="text" sortOrder="80" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Tab Position</label>
+                    <comment>Sort order should be greater than 0</comment>
+                    <depends>
+                        <field id="block_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order_view" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Order View Page</label>
+                <field id="show_attachments" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Attachments</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="label" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Title for Attachments Block</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                </field>
+                <field id="include_attachments_filter" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Type of Attachments to Display</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\OrderFilterType</source_model>
+                </field>
+                <field id="order_status" translate="label comment" type="multiselect" sortOrder="33" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <comment>Leave the field empty to show attachments in all statuses</comment>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\OrderStatus</source_model>
+                </field>
+                <field id="fileicon" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show File Icon</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="filesize" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show File Size</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="order_email" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Order Email</label>
+                <field id="show_attachments" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Add Attachments to Transactional Emails</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="label" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Title for Attachments Block</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                </field>
+                <field id="include_attachments_filter" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Type of Attachments to Add</label>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\OrderFilterType</source_model>
+                </field>
+                <field id="order_status" translate="label comment" type="multiselect" sortOrder="33" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Order Status</label>
+                    <can_be_empty>1</can_be_empty>
+                    <depends>
+                        <field id="show_attachments">1</field>
+                    </depends>
+                    <comment>Leave the field empty to show attachments in all statuses</comment>
+                    <source_model>Amasty\ProductAttachment\Model\SourceOptions\OrderStatus</source_model>
+                </field>
+            </group>
+            <group id="additional" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Additional Settings</label>
+                <field id="detect_mime" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Autodetect File Mime Type on Download</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Set the option to Yes to let customers open attachments in a new browser window instead of downloading them. ‘Fileinfo' extension or 'mime_content_type' function must be enabled in server configuration</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

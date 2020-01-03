@@ -1,0 +1,8 @@
+.amcheckout-sortable-container .amcheckout-sortable {
+    cursor: pointer;
+}
+
+.amcheckout-sortable-container .amcheckout-sortable.-unsortable {
+    opacity: .5;
+    cursor: default;
+}

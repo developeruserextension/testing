@@ -1,0 +1,48 @@
+@media all and (min-width: 768px), print {
+    .amhideprice-form {
+        max-width: 700px;
+        width: 40%;
+    }
+}
+
+@media all and (max-width: 767px), print {
+    .amhideprice-form {
+        width: 80%;
+    }
+}
+
+.amhideprice-form {
+    position: relative;
+    padding: 30px;
+    vertical-align: middle;
+    background: #fafafa;
+}
+
+div.message.am-hide-message {
+    display: inline-block;
+    padding: 13px 70px;
+}
+
+.fancyambox-stage .amhideprice-form .legend span {
+    font-size: 1.8rem;
+}
+
+.amhideprice-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMWwxMSAxMW0wLTExTDEgMTIiIHN0cm9rZT0iI0IyQjJCMiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==) no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.amhideprice-close:hover {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxnIGNsYXNzPSJjdXJyZW50TGF5ZXIiPjxwYXRoIGQ9Ik0xIDFsMTEgMTFtMC0xMUwxIDEyIiBzdHJva2U9IiMxZGExZjIiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGNsYXNzPSJzZWxlY3RlZCIvPjwvZz48L3N2Zz4=) no-repeat center;
+    background-size: contain;
+}
+
+a.amasty-hide-price-container {
+    cursor: pointer;
+}

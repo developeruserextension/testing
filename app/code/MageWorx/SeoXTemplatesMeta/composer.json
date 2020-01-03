@@ -1,0 +1,9 @@
+{
+  "name": "mageworx/module-seoxtemplatesmeta",
+  "version": "2.9.0",
+  "type": "metapackage",
+  "require": {
+      "mageworx/module-seoall": ">=2.4.2",
+      "mageworx/module-seoxtemplates": "2.9.0"
+  }
+}

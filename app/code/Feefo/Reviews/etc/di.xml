@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="\Feefo\Reviews\Api\Feefo\Data\WidgetConfigInterface"  type="Feefo\Reviews\Model\Feefo\Data\WidgetConfig" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\ServiceInterface" type="Feefo\Reviews\Model\Feefo\Data\Service" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\RegistrationRequestInterface"   type="Feefo\Reviews\Model\Feefo\Data\RegistrationRequest" />
+    <preference for="Feefo\Reviews\Api\Feefo\RegistrationInterface" type="Feefo\Reviews\Model\Feefo\Registration" />
+    <preference for="Feefo\Reviews\Api\Feefo\StorageInterface"      type="Feefo\Reviews\Model\Feefo\Storage" />
+    <preference for="Feefo\Reviews\Api\Feefo\HttpClientInterface"   type="Feefo\Reviews\Model\Feefo\HttpClient\Curl" />
+    <preference for="Feefo\Reviews\Api\Feefo\Helper\ScopeInterface"   type="Feefo\Reviews\Helper\ScopeConfig" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\ConfigurationRequestInterface"   type="Feefo\Reviews\Model\Feefo\Data\ConfigurationRequest" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\WidgetSnippetInterface"  type="Feefo\Reviews\Model\Feefo\Data\WidgetSnippet" />
+    <preference for="Feefo\Reviews\Api\Feefo\Helper\HmacInterface"   type="Feefo\Reviews\Helper\Hmac" />
+    <preference for="Feefo\Reviews\Api\Feefo\Helper\StoreDetailsInterface"   type="Feefo\Reviews\Helper\StoreDetails" />
+    <preference for="Feefo\Reviews\Api\Feefo\WidgetInterface" type="Feefo\Reviews\Model\Feefo\Widget" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\WidgetWrapperInterface" type="Feefo\Reviews\Model\Feefo\Data\WidgetWrapper" />
+    <preference for="Feefo\Reviews\Api\Feefo\StoreUrlGroupInterface" type="Feefo\Reviews\Model\Feefo\StoreUrlGroup" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\StoreUrlGroupDataInterface" type="Feefo\Reviews\Model\Feefo\Data\StoreUrlGroupData" />
+    <preference for="Feefo\Reviews\Api\Feefo\Data\JsonableInterface" type="Feefo\Reviews\Model\Feefo\Data\JsonableDataObject" />
+    <preference for="Feefo\Reviews\Api\Feefo\UninstallPluginRequestInterface" type="Feefo\Reviews\Model\Feefo\UninstallPluginRequest" />
+
+    <type name="Magento\Review\Block\Product\ReviewRenderer">
+        <plugin name="Feefo_Reviews_ReviewRendererPlugin" type="Feefo\Reviews\Plugin\Block\Product\ReviewRendererPlugin" sortOrder="10" />
+    </type>
+</config>

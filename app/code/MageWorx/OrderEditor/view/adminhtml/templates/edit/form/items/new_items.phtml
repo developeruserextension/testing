@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Form\Items\NewItem\Form $block
+ */
+?>
+<?= /* @noEscape */ $block->getItemsForm(); ?>
+
+<?php foreach ($block->getErrors() as $productName => $error) : ?>
+    <?php $id = hash('sha256', rand()); ?>
+    <tr class="headings type-quote" data-item-id="<?= $block->escapeHtmlAttr($id) ?>">
+        <td class="col-product"><?= $block->escapeHtml($productName); ?></td>
+        <td colspan="10"><span class="notice"><?= $block->escapeHtml($error); ?></span></td>
+        <td class="error_row_remove a-center last">
+            <span data-id="<?= $block->escapeHtmlAttr($id); ?>" class="remove_quote_item remove_quote_item_error">
+                <i class="fa fa-times"></i>
+            </span>
+        </td>
+    </tr>
+<?php endforeach; ?>

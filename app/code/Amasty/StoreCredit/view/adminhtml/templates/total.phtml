@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+?>
+<?php
+/**
+ * @var \Amasty\StoreCredit\Block\Adminhtml\Total $block
+ */
+?>
+<?php if ($block->getStoreCredit()): ?>
+    <tr>
+        <td class="label"><?= $block->escapeHtml(__('Store Credit')); ?></td>
+        <td>
+            <?= $block->getFormatStoreCredit(); ?>
+        </td>
+    </tr>
+<?php endif; ?>

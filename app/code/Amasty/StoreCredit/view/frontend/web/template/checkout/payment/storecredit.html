@@ -1,0 +1,48 @@
+<!-- ko if: isVisible() -->
+<div class="payment-option _collapsible opc-payment-additional store-credit-add" data-bind="mageInit: {'collapsible':{'openedState': '_active'}}">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" id="block-reward-heading" role="heading" aria-level="2">
+            <!-- ko i18n: 'Apply Store Credit'--><!-- /ko -->
+        </span>
+    </div>
+
+    <div class="payment-option-content store-credit-container" data-role="content" aria-labelledby="block-reward-heading">
+
+        <div class="storeCreditLeft" data-role="title">
+            <!-- ko i18n: 'You have '--><!-- /ko -->
+            <strong data-bind="text: getStoreCreditLeft()"></strong>
+            <!-- ko i18n: ' on your Store Credit account'--><!-- /ko -->
+        </div>
+        <div class="payment-option-inner">
+            <!-- ko ifnot: isApplied() -->
+            <div class="field">
+                <div class="control">
+                    <input class="input-text"
+                           type="text"
+                           id="amstorecredit_amount"
+                           data-validate="{'required-entry':true}"
+                           data-bind="value: amount, attr:{placeholder: $t('Enter store credit amount')}" />
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: isApplied() -->
+            <div><span data-bind="i18n: 'Applied store credit amount is '"></span> <span data-bind="text: getFormatAmount()"></span></div>
+            <!-- /ko -->
+        </div>
+        <div class="actions-toolbar storecredit-actions">
+            <div class="primary">
+                <!-- ko ifnot: isApplied() -->
+                <button class="action action-apply" type="submit" data-bind="'value': $t('Apply Store Credit'), click: applyStoreCredit">
+                    <span><!-- ko i18n: 'Apply Store Credit'--><!-- /ko --></span>
+                </button>
+                <!-- /ko -->
+                <!-- ko if: isApplied() -->
+                <button class="action action-cancel" type="submit" data-bind="'value': $t('Cancel Store Credit'), click: cancelStoreCredit">
+                    <span><!-- ko i18n: 'Cancel Store Credit'--><!-- /ko --></span>
+                </button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

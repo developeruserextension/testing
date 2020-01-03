@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Form\Items\Options $block */
+?>
+<?php if ($block->getOrderOptions()) : ?>
+    <dl class="item-options item_options_<?= $block->escapeHtmlAttr($block->getItemId()); ?>">
+        <?php foreach ($block->getOrderOptions() as $_option) : ?>
+            <dt><?= $block->escapeHtml($_option['label']); ?>:</dt>
+            <dd>
+                <?php if (isset($_option['custom_view']) && $_option['custom_view']) : ?>
+                    <?= /* @noEscape */ $block->getCustomizedOptionValue($_option); ?>
+                <?php else : ?>
+                    <?php $_option = $block->getFormattedOption($_option['value']); ?>
+                    <?= /* @noEscape */ $_option['value']; ?><?php if (isset($_option['remainder']) && !empty($_option['remainder'])) : ?><span id="<?= $block->escapeHtmlAttr($_dots = 'dots' . uniqid());?>"> ...</span><span id="<?= $block->escapeHtmlAttr($_id = 'id' . uniqid());?>"><?= /* @noEscape */  $_option['remainder'] ?></span>
+                        <script>
+                            require(['prototype'], function() {
+                                $('<?= $block->escapeJs($_id); ?>').hide();
+                                $('<?= $block->escapeJs($_id); ?>').up().observe('mouseover', function(){$('<?= $block->escapeJs($_id); ?>').show();});
+                                $('<?= $block->escapeJs($_id); ?>').up().observe('mouseover', function(){$('<?= $block->escapeJs($_dots);?>').hide();});
+                                $('<?= $block->escapeJs($_id); ?>').up().observe('mouseout',  function(){$('<?= $block->escapeJs($_id); ?>').hide();});
+                                $('<?= $block->escapeJs($_id); ?>').up().observe('mouseout',  function(){$('<?= $block->escapeJs($_dots); ?>').show();});
+                            });
+                        </script>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+<?php endif; ?>

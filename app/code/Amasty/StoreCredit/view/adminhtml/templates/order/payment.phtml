@@ -1,0 +1,40 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+?>
+<?php
+/**
+ * @var $block \Amasty\StoreCredit\Block\Adminhtml\StoreCreditBillingMethod
+ */
+?>
+
+<?php if ($block->canUseStoreCredit()) : ?>
+    <div class="field choice admin__field admin__field-option">
+        <input id="use_to_store_credit"
+               class="admin__control-checkbox"
+               name="use_to_store_credit"
+               value="1"
+               type="checkbox"
+               <?= ($block->isUsedStoreCredit() ? 'checked' : '' ) ?>
+            />
+        <label for="use_to_store_credit" class="admin__field-label">
+            <span>
+                <?= $block->escapeHtml(__('Use Store Credit')) ?>
+                <?= $block->escapeHtml($block->getCurrencySymbol()) ?>
+            </span>
+        </label>
+        <input type="hidden" id="current_store_credit" value="<?= (float)$block->getCurrentStoreCredit(); ?>" />
+        <input type="text" name="store_credit_amount"
+               value="<?= (float)$block->getCurrentStoreCredit(); ?>"
+               data-max="<?= (float)$block->getUsableStoreCredit(); ?>"
+               class="input-text admin__control-text"
+               id="store_credit_amount" data-mage-init='{"Amasty_StoreCredit/js/payment": {"checkbox": "#use_to_store_credit", "button": "#amupdate-prices"}}'
+               <?= ($block->isUsedStoreCredit() ? '' : 'disabled') ?> />
+        <button title="Update Prices" type="button" class="scalable action-secondary" id="amupdate-prices" disabled>
+            <span>Update</span>
+        </button>
+    </div>
+<?php endif; ?>

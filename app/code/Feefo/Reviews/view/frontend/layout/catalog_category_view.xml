@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="category.products.list">
+            <block class="Feefo\Reviews\Block\ProductListing" name="category.products.list.feefoRating">
+                <arguments>
+                    <argument name="placement" translate="true" xsi:type="string">AUTO</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

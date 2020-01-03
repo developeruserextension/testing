@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachmentApi
+ */
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/amasty_product_attachment/getByProductId" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\FrontendAttachmentInterface" method="getByProductId"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+        <data>
+            <parameter name="amastyCustomerGroup" force="true">%amasty_customer_group%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/getByCategoryId" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\FrontendAttachmentInterface" method="getByCategoryId"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+        <data>
+            <parameter name="amastyCustomerGroup" force="true">%amasty_customer_group%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/getByFileIds" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\FrontendAttachmentInterface" method="getByFileIds"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+        <data>
+            <parameter name="amastyCustomerGroup" force="true">%amasty_customer_group%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/download" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\DownloadFileInterface" method="download"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+        <data>
+            <parameter name="amastyCustomerGroup" force="true">%amasty_customer_group%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/filemanage/uploadFile" method="POST">
+        <service class="Amasty\ProductAttachmentApi\Api\UploadFileInterface" method="upload"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+
+
+    <route url="/V1/amasty_product_attachment/filemanage/:fileId" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" method="getById"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/filemanage" method="POST">
+        <service class="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" method="save"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/filemanage/:fileId" method="PUT">
+        <service class="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" method="save"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/filemanage/:fileId" method="DELETE">
+        <service class="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+
+    <route url="/V1/amasty_product_attachment/filemanage/files" method="GET">
+        <service class="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" method="getList"/>
+        <resources>
+            <resource ref="Amasty_ProductAttachment::attachment" />
+        </resources>
+    </route>
+</routes>

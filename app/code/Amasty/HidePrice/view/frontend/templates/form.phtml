@@ -1,0 +1,89 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+?>
+<?php /** @var \Amasty\HidePrice\Block\Form $block */ ?>
+<form class="amhideprice-form" id="amhideprice-form" method="post" style="display: none;" data-nofocus="true">
+    <span class="amhideprice-close" data-amhide-js="close-popup"></span>
+    <input name="form_key" type="hidden" value="<?php echo $block->escapeHtml($block->getFormKey()) ?>" />
+    <input name="product_id" type="hidden" value="" />
+    <fieldset class="fieldset">
+        <legend class="legend amhideprice-form-ledend">
+            <span><?= __('Get a Quote for') ?></span>
+            <span style="font-weight: bolder;" class="product-name"></span>
+        </legend>
+        <br>
+        <div class="field required">
+            <label for="amhideprice-name" class="label">
+                <span><?= __('Customer Name') ?></span>
+            </label>
+
+            <div class="control">
+                <input type="text" name="name" class="input-text" 
+                      id="amhideprice-name" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="amhideprice-email" class="label">
+                <span><?= __('Customer Email') ?></span>
+            </label>
+
+            <div class="control">
+                <input type="email"
+                       name="email"
+                       id="amhideprice-email" 
+                       autocomplete="email"
+                       value="" class="input-text"
+                       data-validate="{required:true, 'validate-email':true}"
+                       aria-required="true">
+            </div>
+        </div>
+        <div class="field required">
+            <label for="amhideprice-phone" class="label">
+                <span><?= __('Phone Number') ?></span>
+            </label>
+
+            <div class="control">
+                <input type="text" name="phone" class="input-text "
+                     id="amhideprice-phone" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field">
+            <label for="amhideprice-comment" class="label">
+                <span><?= __('Comment') ?></span>
+            </label>
+
+            <div class="control">
+                <textarea title="<?= __('Comment') ?>"
+                          name="comment" class="input-text"
+                          id="amhideprice-comment"
+                          data-validate="{'validate-no-html-tags':true}"></textarea>
+            </div>
+        </div>
+        <?php if ($block->isGDPREnabled()) : ?>
+            <div class="field required">
+                <label class="label" for="amhideprice-gdpr">
+                    <input type="checkbox"
+                           name="gdpr"
+                           id="amhideprice-gdpr"
+                           title="<?= __('GDPR'); ?>"
+                           data-validate="{required:true}"
+                           value="1">
+                    <?= $block->getGDPRText(); ?>
+                </label>
+            </div>
+        <?php endif; ?>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary"
+                    title="<?= __('Submit') ?>">
+                <span><?= __('Submit') ?></span>
+            </button>
+        </div>
+    </div>
+</form>

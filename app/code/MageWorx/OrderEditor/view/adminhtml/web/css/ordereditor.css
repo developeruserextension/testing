@@ -1,0 +1,258 @@
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+.mw-order-editor-order-item {
+    width: 100px;
+}
+
+.mw-order-editor-order-item.qty_input {
+    width: 35px;
+}
+
+.mw-order-editor-order-item.total_input {
+    width: 70px;
+}
+
+.admin__order-shipment-methods .disabled, .mw-order-editor-order-item.disabled {
+    background: #DDDDDD none repeat scroll 0 0;
+}
+
+.mw-order-editor-order-item.cancelled {
+    background: #DDDDDD none repeat scroll 0 0;
+}
+
+#ordereditor-search-products .action-configure.disabled {
+    display: none !important;
+}
+
+#ordereditor-search-products .action-configure {
+    float: right;
+}
+
+#ordereditor-search-products .admin__page-section-title .actions {
+    float: right;
+}
+
+.new-totals {
+    background-color: #E8FAD7
+}
+
+#shipping-result-form .order-totals {
+    width: 100%;
+}
+
+.back-to-stock-table td {
+    padding: 3px 5px;
+    border: none;
+}
+
+.removed_item * {
+    color: #cccccc;
+}
+
+.removed_item td.col-actions * {
+    color: black;
+}
+
+.order-shipping-method {
+    position: relative;
+}
+
+#order-shipping-method-choose .edit_price_form {
+    margin-top: 3px
+}
+
+#order-shipping-method-choose .edit_price_form input {
+    width: 55px;
+}
+
+#order-shipping-method-choose .edit_price_form .price_incl_tax {
+    display: block;
+    margin-top: 3px;
+}
+
+#mageworx_ordereditor_payment_method {
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+#mageworx_ordereditor_payment_method_label {
+    display: block;
+    width: 100%;
+}
+
+#payment_form_authorizenet_directpost {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+    .order-shipping-method {
+        float: left;
+        width: calc((100%) * .5 - 30px);
+    }
+}
+
+.order-tables {
+    background-color: #e6e6e6;
+    border-bottom: 5px solid #e6e6e6;
+    overflow: hidden;
+}
+
+.order-tables .col-product > img {
+    max-width: fit-content;
+    margin-left: 5px;
+}
+
+.order-tables  > thead > tr > th, .order-tables > tbody > tr > td {
+    text-align: center;
+    border-bottom: none;
+    padding: 1rem 0.5rem;
+}
+
+.order-tables > tbody > tr > td {
+    width: 110px;
+}
+
+.order-tables > tbody > tr > td > label {
+    display: inline-block;
+    width: 100%;
+}
+
+.order-tables td input {
+    display: inline-block;
+    text-align: center;
+    width: 85px;
+}
+
+.order-tables td .currency-span,.order-tables td .currency-span {
+    display: inline-block;
+    text-align: center;
+    font-weight: bolder;
+    width: 10px;
+}
+
+.order-tables > tbody > tr > td {
+    background-color: #f1f4f4;
+    border-right: 2px solid #e6e6e6;
+}
+.order-tables > tbody > tr > td:first-child {
+    background-color: #f1f4f4;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.order-tables > tbody > tr > td:last-child {
+    background-color: #f1f4f4;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-right: none;
+}
+
+.order-tables > tbody:not(:last-child) > tr {
+    border-bottom: 10px solid #e6e6e6;
+}
+
+.order-tables > tbody:not(:first-child) > tr {
+    border-top: 10px solid #e6e6e6;
+}
+
+.order-tables > tbody > tr {
+    border-left: 10px solid #e6e6e6;
+    border-right: 10px solid #e6e6e6;
+}
+
+.order-tables .admin__control-select {
+    background-image: url(./images/white-arrows-bg.svg), linear-gradient(#e63900, #e63900), linear-gradient(#ffffff, #ffffff);
+}
+
+.order-tables input, .order-tables select {
+    border: 1px solid #e6e6e6;
+}
+
+/** Currency symbol for inputs */
+
+/** Taxes */
+.order-tables .order-item-applied-rates-container > label {
+    display: inline-block;
+}
+
+.order-tables .order-item-applied-rates-container > label > b, .order-tables .order-item-applied-rates-container > label > input {
+    display: inline-block;
+    width: 85px;
+    margin: 2px;
+}
+
+.order-tables .active-rates > label > b {
+    color: orangered;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.order-item-available-rates-container > label > b:after {
+    content: '>';
+    display: inline-block;
+    transform: rotate(270deg);
+    padding-left: 3px;
+    font-weight: 900;
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.order-item-available-rates-container.active-rates > label > b:after {
+    transform: rotate(90deg);
+    top: 0px;
+}
+
+/** Checkboxes */
+.back-to-stock-table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.back-to-stock-table > tbody > tr > td {
+    padding-right: 0;
+}
+
+.back-to-stock-table label {
+    display: inline;
+}
+
+.back-to-stock-table .regular-checkbox {
+    display: none;
+}
+
+.back-to-stock-table .regular-checkbox + label {
+    background-color: #e63900;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 7px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+}
+
+.back-to-stock-table .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.back-to-stock-table .regular-checkbox:checked + label {
+    background-color: #e63900;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+
+.back-to-stock-table .regular-checkbox:checked + label:after {
+    content: '\2714';
+    font-size: 12px;
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    color: #ffffff;
+}
+

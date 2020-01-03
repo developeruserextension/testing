@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="amasty_product_attachments" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\ProductAttachment\Model\Product\DataProvider\Form</item>
+                    <item name="sortOrder" xsi:type="number">201</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Catalog\Model\Category\DataProvider">
+        <plugin name="AmastyProductAttachmentModifier" type="Amasty\ProductAttachment\Model\Category\DataProvider\Form" />
+    </type>
+
+    <!-- Import Config -->
+    <virtualType name="Amasty\ProductAttachment\Model\Import\ValidatorPool" type="Amasty\Base\Model\Import\Validation\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="basic" xsi:type="object">Amasty\ProductAttachment\Model\Import\Validation\Basic</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\ProductAttachment\Model\Import\Behavior\BehaviorProvider" type="Amasty\Base\Model\Import\Behavior\BehaviorProvider">
+        <arguments>
+            <argument name="behaviors" xsi:type="array">
+                <item name="custom" xsi:type="object">Amasty\ProductAttachment\Model\Import\Behaviors\Add</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\ProductAttachment\Model\Import\ImportProcess">
+        <arguments>
+            <argument name="entityTypeCode" xsi:type="string">amfile_files_import</argument>
+            <argument name="validatorPool" xsi:type="object">Amasty\ProductAttachment\Model\Import\ValidatorPool</argument>
+            <argument name="behaviorProvider" xsi:type="object">Amasty\ProductAttachment\Model\Import\Behavior\BehaviorProvider</argument>
+            <argument name="mapping" xsi:type="object">Amasty\ProductAttachment\Model\Import\Mapping</argument>
+        </arguments>
+    </type>
+    <!-- End Import Config -->
+</config>

@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<script>
+require([
+    "prototype",
+    "Magento_Sales/order/create/form",
+    "Magento_Catalog/catalog/product/composite/configure"
+], function(){
+    if (window.productConfigure) {
+        productConfigure.addListType('product_to_add', {
+            urlFetch: '<?= $block->escapeUrl($block->getUrl('sales/order_create/configureProductToAdd')) ?>'
+        });
+        productConfigure.addListType('quote_items', {
+            urlFetch: '<?= $block->escapeUrl($block->getUrl('sales/order_create/configureQuoteItems')) ?>'
+        });
+    }
+});
+</script>
+

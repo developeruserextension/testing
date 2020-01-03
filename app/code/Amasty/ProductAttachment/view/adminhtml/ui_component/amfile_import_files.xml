@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amfile_import_files.amfile_import_files_data_source</item>
+            <item name="deps" xsi:type="string">amfile_import_files.amfile_import_files_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">amfile_import_files_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Upload Your Files</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <dataSource name="amfile_import_files.amfile_import_files_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\ProductAttachment\Model\Import\DataProvider\Files</argument>
+            <argument name="name" xsi:type="string">amfile_import_files_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">import_id</argument>
+            <argument name="requestFieldName" xsi:type="string">import_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Amasty_ProductAttachment/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Prepare Files</item>
+                <item name="additionalClasses" xsi:type="string">admin__fieldset-section</item>
+            </item>
+        </argument>
+        <field name="step">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">step</item>
+                    <item name="value" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </field>
+        <field name="comment">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                    <item name="template" xsi:type="string">ui/form/element/html</item>
+                    <item name="value" xsi:type="string" translate="true"><![CDATA[You can upload your files in <b>pub/media/amasty/amfile/import/ftp</b> folder]]></item>
+                </item>
+            </argument>
+        </field>
+        <!-- Dynamic rows -->
+        <container name="files">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="additionalClasses" xsi:type="string">admin__field-wide amasty-file-rows amasty-dynamic-rows</item>
+                    <item name="componentType" xsi:type="string">dynamicRows</item>
+                    <item name="component" xsi:type="string">Amasty_ProductAttachment/js/dynamic-rows/dynamic-rows-grid</item>
+                    <item name="template" xsi:type="string">ui/dynamic-rows/templates/grid</item>
+                    <item name="recordTemplate" xsi:type="string">record</item>
+                    <item name="addButton" xsi:type="boolean">false</item>
+                    <item name="columnsHeader" xsi:type="boolean">false</item>
+                    <item name="columnsHeaderAfterRender" xsi:type="boolean">true</item>
+                    <item name="renderDefaultRecord" xsi:type="boolean">false</item>
+                    <item name="deleteButtonLabel" xsi:type="string" translate="true">Remove</item>
+                    <item name="dataScope" xsi:type="string">attachments</item>
+                    <item name="identificationProperty" xsi:type="string">file_id</item>
+                    <item name="identificationDRProperty" xsi:type="string">file_id</item>
+                    <item name="dataProvider" xsi:type="string">data.files</item>
+                    <item name="map" xsi:type="array">
+                        <item name="show_file_id" xsi:type="string">show_file_id</item>
+                        <item name="file_id" xsi:type="string">file_id</item>
+                        <item name="icon" xsi:type="string">icon_src</item>
+                        <item name="filename" xsi:type="string">filename</item>
+                        <item name="extension" xsi:type="string">extension</item>
+                        <item name="label" xsi:type="string">label</item>
+                        <item name="customer_groups" xsi:type="string">customer_groups</item>
+                        <item name="include_in_order" xsi:type="string">include_in_order</item>
+                        <item name="is_visible" xsi:type="string">is_visible</item>
+                        <item name="file" xsi:type="string">file</item>
+                    </item>
+                    <item name="links" xsi:type="array">
+                        <item name="insertData" xsi:type="string">${ $.provider }:${ $.dataProvider }</item>
+                    </item>
+                    <item name="dndConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <container name="record">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="component" xsi:type="string">Magento_Ui/js/dynamic-rows/record</item>
+                        <item name="isTemplate" xsi:type="boolean">true</item>
+                        <item name="is_collection" xsi:type="boolean">true</item>
+                    </item>
+                </argument>
+                <field name="show_file_id">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="elementTmpl" xsi:type="string">ui/dynamic-rows/cells/text</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/text</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="dataScope" xsi:type="string">show_file_id</item>
+                            <item name="label" xsi:type="string" translate="true">File Id</item>
+                            <item name="sortOrder" xsi:type="number">10</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="icon">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="elementTmpl" xsi:type="string">ui/dynamic-rows/cells/thumbnail</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/text</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="dataScope" xsi:type="string">icon</item>
+                            <item name="label" xsi:type="string" translate="true">Icon</item>
+                            <item name="sortOrder" xsi:type="number">20</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="filename">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">false</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="dataScope" xsi:type="string">filename</item>
+                            <item name="label" xsi:type="string" translate="true">Attachment Name</item>
+                            <item name="sortOrder" xsi:type="number">30</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="extension">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="elementTmpl" xsi:type="string">ui/dynamic-rows/cells/text</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="dataScope" xsi:type="string">extension</item>
+                            <item name="label" xsi:type="string" translate="true">Extension</item>
+                            <item name="sortOrder" xsi:type="number">35</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="label">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">false</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="dataScope" xsi:type="string">label</item>
+                            <item name="label" xsi:type="string" translate="true">Label</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                            <item name="sortOrder" xsi:type="number">40</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="customer_groups">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">multiselect</item>
+                            <item name="component" xsi:type="string">Amasty_ProductAttachment/js/dynamic-rows/element/multiselect</item>
+                            <item name="dataType" xsi:type="string">multiselect</item>
+                            <item name="dataScope" xsi:type="string">customer_groups</item>
+                            <item name="size" xsi:type="string">4</item>
+                            <item name="label" xsi:type="string" translate="true">Customer Groups</item>
+                            <item name="sortOrder" xsi:type="number">45</item>
+                        </item>
+                        <item name="options" xsi:type="object">Amasty\ProductAttachment\Model\SourceOptions\CustomerGroup</item>
+                    </argument>
+                </field>
+                <field name="include_in_order">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/single-checkbox</item>
+                            <item name="dataType" xsi:type="string">boolean</item>
+                            <item name="prefer" xsi:type="string">toggle</item>
+                            <item name="valueMap" xsi:type="array">
+                                <item name="true" xsi:type="number">1</item>
+                                <item name="false" xsi:type="number">0</item>
+                            </item>
+                            <item name="dataScope" xsi:type="string">include_in_order</item>
+                            <item name="label" xsi:type="string" translate="true">Include In Order</item>
+                            <item name="sortOrder" xsi:type="number">50</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="is_visible">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="dataType" xsi:type="string">boolean</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/single-checkbox</item>
+                            <item name="prefer" xsi:type="string">toggle</item>
+                            <item name="dataScope" xsi:type="string">is_visible</item>
+                            <item name="valueMap" xsi:type="array">
+                                <item name="true" xsi:type="number">1</item>
+                                <item name="false" xsi:type="number">0</item>
+                            </item>
+                            <item name="label" xsi:type="string" translate="true">Visible</item>
+                            <item name="sortOrder" xsi:type="number">60</item>
+                        </item>
+                    </argument>
+                </field>
+                <actionDelete>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="fit" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">data-grid-actions-cell</item>
+                            <item name="component" xsi:type="string">Amasty_ProductAttachment/js/dynamic-rows/element/delete-action</item>
+                            <item name="template" xsi:type="string">Amasty_ProductAttachment/dynamic-rows/cells/delete-action</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="label" xsi:type="string" translate="true">Actions</item>
+                            <item name="sortOrder" xsi:type="number">99</item>
+                        </item>
+                    </argument>
+                </actionDelete>
+                <field name="position">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataType" xsi:type="string">number</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="dataScope" xsi:type="string">position</item>
+                            <item name="sortOrder" xsi:type="number">999</item>
+                            <item name="visible" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="file_id">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataType" xsi:type="string">number</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="dataScope" xsi:type="string">file_id</item>
+                            <item name="sortOrder" xsi:type="number">998</item>
+                            <item name="visible" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="file">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="dataScope" xsi:type="string">file</item>
+                            <item name="sortOrder" xsi:type="number">997</item>
+                            <item name="visible" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="link">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="dataScope" xsi:type="string">link</item>
+                            <item name="sortOrder" xsi:type="number">996</item>
+                            <item name="visible" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                </field>
+                <field name="filepath">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataType" xsi:type="string">text</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="dataScope" xsi:type="string">filepath</item>
+                            <item name="sortOrder" xsi:type="number">995</item>
+                            <item name="visible" xsi:type="boolean">false</item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+        </container>
+        <!-- end Dynamic rows -->
+        <container name="add_new">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="boolean">false</item>
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="sortOrder" xsi:type="string">1100</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                    <item name="title" xsi:type="string" translate="true">Add New Files</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="targetName" xsi:type="string">amfile_import_files.amfile_import_files.general.file</item>
+                            <item name="actionName" xsi:type="string">open</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </container>
+        <field name="file">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="label" xsi:type="string">File</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="isMultipleFiles" xsi:type="boolean">true</item>
+                    <item name="component" xsi:type="string">Amasty_ProductAttachment/js/form/element/file-uploader-simple</item>
+                    <item name="previewTmpl" xsi:type="string">Amasty_ProductAttachment/form/element/uploader/preview</item>
+                    <item name="source" xsi:type="string">file</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="amfile/file_uploader/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

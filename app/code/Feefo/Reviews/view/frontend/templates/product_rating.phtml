@@ -1,0 +1,9 @@
+<?php
+/** @var Feefo\Reviews\Block\ProductRating $block */
+?>
+
+<?php if ($block->isEnabledWidget() && $block->isRightPlacement()) : ?>
+    <div id="feefo-product-rating-container">
+        <?php echo $block->getSnippet(); ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,73 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+?>
+<?php
+/** @var \Amasty\StoreCredit\Block\Dashboard $block */
+?>
+<style>
+    .amstorecredit-table .amount-dir-1{
+        color: #b71c1c;
+    }
+
+    .amstorecredit-table .amount-dir-0{
+        color: #0a820b;
+    }
+</style>
+
+<h3><?= $block->escapeHtml('Store Credit Balance:') . ' ' . $block->escapeHtml($block->getCustomerBalance()) ?></h3>
+<?php
+if ($histories = $block->getCollection()->getItems()) : ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items amstorecredit-table" id="my-orders-table">
+            <thead class="amrewards-table-header">
+            <tr>
+                <th scope="col" class="col transaction-id"><?= $block->escapeHtml(__('Transaction Id')) ?></th>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Date')) ?></th>
+                <th scope="col" class="col total"><?= $block->escapeHtml(__('Change')) ?></th>
+                <th scope="col" class="col new-balance"><?= $block->escapeHtml(__('New Balance')) ?></th>
+                <th scope="col" class="col action"><?= $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            /** @var \Amasty\StoreCredit\Model\History\History $history */
+            foreach ($histories as $history) :
+            ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Transaction Id')); ?>" class="col transaction-id">
+                        <?= $block->escapeHtml($history->getCustomerHistoryId()); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Date')); ?>" class="col date">
+                        <?= $block->escapeHtml($block->formatDate($history->getCreatedAt())); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Change')); ?>" class="col amount amount-dir-<?= (int)$history->isDeduct(); ?>">
+                        <?= $history->isDeduct() ? '-' : '+' ?><?= $block->escapeHtml($history->getFormatDifference()); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('New Balance')); ?>" class="col new-balance">
+                        <?= $block->escapeHtml($history->getFormatStoreCreditBalance()) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Action')); ?>" class="col status">
+                        <?= $block->escapeHtml($history->getSmallActionMessage()); ?>
+                        <?php if ($history->getMessage()) : ?>
+                        <div><b><?= $block->escapeHtml(__('Administrator\'s comment:')) ?> <?= $block->escapeHtml($history->getMessage()); ?></b></div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($pager = $block->getPagerHtml()) : ?>
+        <div class="toolbar">
+            <div class="amstorecredit-pager"><?= $pager; ?></div>
+        </div>
+    <?php endif; ?>
+<?php else : ?>
+    <div class="message info empty">
+        <span><?= $block->escapeHtml(__('You have no store credit history.')); ?></span>
+    </div>
+<?php endif ?>

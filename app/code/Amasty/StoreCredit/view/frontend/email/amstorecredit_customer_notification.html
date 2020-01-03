@@ -1,0 +1,48 @@
+<!--@subject Your Store Credit balance has been amended! @-->
+<!--@vars {
+"var customerName":"Customer Name",
+"var actionAdd":"Is admin added store credit",
+"var actionRemove":"Is admin removed store credit",
+"var actionCreditMemo":"Is Creditmemo returned to store credit",
+"var actionOrderPay":"Is Order was payed by store credit",
+"var actionOrderCancel":"Is Order was canceled and store credit returned",
+"var storeCredit":"Added or Removed store credit amount",
+"var newBalance":"New Store Credit Balance",
+"var orderId":"Order ID",
+"var message":"Administrator message"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td valign="top">
+            <p>{{trans "Hello %name," name=$customerName}}</p><br>
+            <p>{{trans "Thank you for being our loyal customer."}}</p><br>
+            <p>
+                {{if actionAdd }}
+                    {{trans 'Administrator has added <b>%store_credit</b> to your Store Credit. The current store credit balance is <b>%new_balance</b>' store_credit=$storeCredit new_balance=$newBalance |raw}}
+                {{/if}}
+                {{if actionRemove}}
+                    {{trans 'Administrator has removed <b>%store_credit</b> from your Store Credit. The current store credit balance is <b>%new_balance</b>' store_credit=$storeCredit new_balance=$newBalance |raw}}
+                {{/if}}
+                {{if actionCreditMemo}}
+                    {{trans 'Your order #%order_id was refunded. <b>%store_credit</b> were added to your Store Credit account. The current store credit balance is <b>%new_balance</b>' store_credit=$storeCredit new_balance=$newBalance order_id=$orderId |raw}}
+                {{/if}}
+                {{if actionOrderPay}}
+                    {{trans 'Order #%order_id was paid using <b>%store_credit</b> from your Store Credit. The current store credit balance is <b>%new_balance</b>' store_credit=$storeCredit new_balance=$newBalance order_id=$orderId |raw}}
+                {{/if}}
+                {{if actionOrderCancel}}
+                    {{trans 'Order #%order_id was canceled. <b>%store_credit</b> were added to your Store Credit account. The current store credit balance is <b>%new_balance</b>' store_credit=$storeCredit new_balance=$newBalance order_id=$orderId |raw}}
+                {{/if}}
+            </p><br>
+
+            {{depend message}}
+                <p>{{trans 'A comment from Administrator: %message' message=$message}}</p><br>
+            {{/depend}}
+
+            <p>{{trans "You can use it for purchasing items in our online store right away."}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

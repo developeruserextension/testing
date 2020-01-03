@@ -1,0 +1,51 @@
+<li id="shipping" class="checkout-shipping-address amcheckout-shipping-address" data-bind="fadeVisible: visible()">
+    <p class="step-title amcheckout-title"
+       data-amcheckout-js="step-title"
+       data-bind="i18n: getNameShippingAddress()"
+       data-role="title"></p>
+    <div id="checkout-step-shipping"
+         class="step-content amcheckout-content"
+         data-amcheckout-js="step-content"
+         data-role="content"
+         data-bind="mageInit: {'checkoutCollapsibleSteps': {}}">
+        <div class="amcheckout-wrapper">
+            <!-- ko if: (!quoteIsVirtual) -->
+            <!-- ko foreach: getRegion('customer-email') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+            <!--/ko-->
+
+            <!-- ko foreach: getRegion('address-list') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- ko foreach: getRegion('address-list-additional-addresses') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- Address form pop up -->
+            <!-- ko if: (!isFormInline) -->
+            <button type="button"
+                    data-bind="click: showFormPopUp, visible: !isNewAddressAdded()"
+                    class="action action-show-popup amcheckout-button -new-address">
+                <span data-bind="i18n: 'New Address'"></span></button>
+            <div id="opc-new-shipping-address" data-bind="visible: isFormPopUpVisible">
+                <!-- ko template: 'Magento_Checkout/shipping-address/form' --><!-- /ko -->
+            </div>
+            <!-- /ko -->
+
+            <!-- ko foreach: getRegion('before-form') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <!-- Inline address form -->
+            <!-- ko if: (isFormInline) -->
+            <!-- ko template: 'Magento_Checkout/shipping-address/form' --><!-- /ko -->
+            <!-- /ko -->
+
+            <!-- ko foreach: getRegion('billing-address-form-shared') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+    </div>
+</li>

@@ -1,0 +1,21 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/carts/mine/amstorecredit/apply" method="POST">
+        <service class="Amasty\StoreCredit\Api\ApplyStoreCreditToQuoteInterface" method="apply"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/carts/mine/amstorecredit/cancel" method="POST">
+        <service class="Amasty\StoreCredit\Api\ApplyStoreCreditToQuoteInterface" method="cancel"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+</routes>

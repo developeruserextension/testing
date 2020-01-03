@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+	<system>
+   	<tab id="infoplus" translate="label" sortOrder="9999">
+      	<label>Infoplus</label>
+    	</tab>
+      <section id="infoplus_connect" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+      	<label>Settings</label>
+         <tab>infoplus</tab>
+         <resource>Infoplus_Connect::infoplus_connect</resource>
+         <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+         	<label>General</label>
+           	<field id="infoplus_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            	<label>Infoplus URL</label>
+					<comment>
+						Base URL for your Infoplus website. Example: https://yourcompany.infopluswms.com
+					</comment>
+				</field>
+			</group>
+  		</section>
+	</system>
+</config>

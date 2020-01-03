@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \Feefo\Reviews\Block\Adminhtml\System\Config\UninstallPluginField $block
+ */
+?>
+<div class="actions uninstall-plugin">
+    <button onclick="setLocation('<?php echo $block->getActionUrl(); ?>');" class="action-uninstall-plugin" type="button" id="<?php echo $block->getData('html_id') ?>">
+        <span><?php echo $block->getData('button_label'); ?></span>
+    </button>
+    <div id="uninstall-plugin-result" class="uninstall-plugin-result-message-box message message-success hidden"></div>
+</div>

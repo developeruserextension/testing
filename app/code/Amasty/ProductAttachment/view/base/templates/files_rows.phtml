@@ -1,0 +1,81 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+?>
+<?php
+/** @var $block \Amasty\ProductAttachment\Block\Adminhtml\Widget\FileRows */
+?>
+<style>
+    .amfile.admin__control-table td{
+        vertical-align: middle!important;
+    }
+</style>
+
+<div id="manage-options-panel">
+    <table class="admin__control-table">
+        <thead>
+        <tr id="attribute-options-table">
+            <th class="col-draggable"></th>
+            <th><?= $block->escapeHtml(__('ID')); ?></th>
+            <th><?= $block->escapeHtml(__('File Name')); ?></th>
+            <th><?= $block->escapeHtml(__('File Label')); ?></th>
+            <th class="col-delete"><?= $block->escapeHtml(__('Remove')); ?></th>
+        </tr>
+        </thead>
+        <tbody data-role="options-container" class="ignore-validate"></tbody>
+    </table>
+    <input type="hidden" id="option-count-check" value="" />
+</div>
+
+<script>
+    require(['jquery'], function($) {
+        //TODO check sesurity
+        var fSet = '<?= $block->escapeHtml($block->getFieldsetId()); ?>';
+        $(document).on('change', '.field-' + fSet + '_widget_type select', function() {
+            $('.field-' + fSet + '_files, .field-' + fSet + '_category, .field-' + fSet + '_product').hide()
+                .next().hide();
+
+            switch ($(this).val()) {
+                case '<?= (int)\Amasty\ProductAttachment\Model\SourceOptions\WidgetType::SPECIFIC_CATEGORY ?>':
+                    $('.field-' + fSet + '_category').show().next().show();
+                    break;
+                case '<?= (int)\Amasty\ProductAttachment\Model\SourceOptions\WidgetType::SPECIFIC_PRODUCT ?>':
+                    $('.field-' + fSet + '_product').show().next().show();
+                    break;
+                case '<?= (int)\Amasty\ProductAttachment\Model\SourceOptions\WidgetType::CUSTOM_FILES ?>':
+                    $('.field-' + fSet + '_files').show().next().show();
+                    break;
+            }
+        });
+        $('.field-' + fSet + '_widget_type select').change();
+    });
+    require(['Amasty_ProductAttachment/js/dynamic-rows/filesrows'], function(filesRows){
+        filesRows({
+            "filesData": <?= /* @escapeNotVerified */ json_encode($block->getFiles()); ?>,
+            "isSortable":  true,
+            "isReadOnly": false,
+            "uniqId": "<?= $block->escapeHtml($block->getUniqId()); ?>",
+            "template": "<tr>\n" +
+            "        <td class=\"col-draggable\">\n" +
+            "            <div data-role=\"draggable-handle\" class=\"draggable-handle\"\n" +
+            "                 title=\"<?= $block->escapeHtml(__('Sort Option')); ?>\"></div>\n" +
+            "            <input data-role=\"order\" type=\"hidden\" name=\"option[order][<%- data.file_id %>]\"\n" +
+            "                   data-file-id =\"<%- data.file_id %>\" value=\"<%- data.order %>\" />\n" +
+            "        </td>\n" +
+            "        <td class=\"col-file-id\"><%- data.file_id %></td>\n" +
+            "        <td class=\"col-file-id\"><%- data.filename %></td>\n" +
+            "        <td class=\"col-file-id\"><%- data.label %></td>\n" +
+            "        <td id=\"delete_button_container_<%- data.file_id %>\" class=\"col-delete\">\n" +
+            "            <button title=\"<?= $block->escapeHtml(__('Delete')); ?>\" type=\"button\"\n" +
+            "                    class=\"action-delete\">\n" +
+            "                <span><?= $block->escapeHtml(__('Delete')); ?></span>\n" +
+            "            </button>\n" +
+            "        </td>\n" +
+            "    </tr>"
+        });
+    });
+
+</script>

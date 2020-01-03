@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/**
+ * @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Form\Address $block
+ */
+?>
+<div class="message message-notice">
+    <div class="message-inner">
+        <div class="message-content">
+            <?= $block->escapeHtml(__('Changing address information will not recalculate tax.')); ?>
+        </div>
+    </div>
+</div>
+
+<?= /* @noEscape */ $block->getAddressForm(); ?>
+<?= /* @noEscape */ $block->getSubmitButtonHtml() ?>
+<?= /* @noEscape */ $block->getCancelButtonHtml() ?>

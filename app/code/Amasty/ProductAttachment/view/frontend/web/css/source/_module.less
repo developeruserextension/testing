@@ -1,0 +1,25 @@
+@amfile-line__margin-bottom: 5px;
+@amfile-line__height: 30px;
+
+& when (@media-common = true) {
+    .am-attachments {
+        .am-fileline {
+            .lib-css(margin-bottom, @amfile-line__margin-bottom);
+
+            .am-fileicon {
+                .lib-css(margin-right, 10px);
+                .lib-css(max-height, @amfile-line__height);
+                .lib-css(vertical-align, middle);
+            }
+
+            .am-filelink {
+                .lib-css(line-height, @amfile-line__height);
+                .lib-css(height, @amfile-line__height);
+            }
+
+            .am-filesize {
+                .lib-css(font-size, 90%);
+            }
+        }
+    }
+}

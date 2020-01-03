@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+	<preference for="Magento\Config\Block\System\Config\Form\Field" type="Klevu\Search\Block\Adminhtml\System\Config\Form\Field"/>
+	<preference for="Magento\Framework\Search\Request\Cleaner" type="Klevu\Search\Framework\Request\Cleaner"/>
+	<preference for="Magento\Framework\Search\Adapter\Mysql\ScoreBuilder" type="Klevu\Search\Adapter\Mysql\ScoreBuilder"/>
+	<preference for="Magento\CatalogSearch\Model\Search\TableMapper" type="Klevu\Search\Model\Search\TableMapper"/>
+	<preference for="Klevu\Search\Model\Klevu\Cron\SchedulerInterface" type="Klevu\Search\Model\Klevu\Cron\Scheduler" />
+	<preference for="Klevu\Search\Model\Klevu\Category\CategoryInterface" type="Klevu\Search\Model\Klevu\Category\Category" />
+	<preference for="Klevu\Search\Model\Api\Magento\Request\ProductInterface" type="Klevu\Search\Model\Api\Magento\Request\Product" />
+	<preference for="Klevu\Search\Model\Product\MagentoProductActionsInterface" type="Klevu\Search\Model\Product\MagentoProductActions"/>
+	<preference for="Klevu\Search\Model\Product\LoadAttributeInterface" type="Klevu\Search\Model\Product\LoadAttribute"/>
+	<preference for="Klevu\Search\Model\Product\KlevuProductActionsInterface" type="Klevu\Search\Model\Product\KlevuProductActions"/>
+	<preference for="Klevu\Search\Model\Product\ProductInterface" type="Klevu\Search\Model\Product\Product"/>
+	<preference for="Klevu\Search\Model\Category\MagentoCategoryActionsInterface" type="Klevu\Search\Model\Category\MagentoCategoryActions"/>
+	<preference for="Klevu\Search\Model\Category\LoadAttributeInterface" type="Klevu\Search\Model\Category\LoadAttribute"/>
+	<preference for="Klevu\Search\Model\Category\KlevuCategoryActionsInterface" type="Klevu\Search\Category\Product\KlevuCategoryActions"/>
+	<preference for="Klevu\Search\Model\Product\ProductParentInterface" type="Klevu\Search\Model\Product\ProductParent"/>
+	<preference for="Klevu\Search\Model\Product\ProductIndividualInterface" type="Klevu\Search\Model\Product\ProductIndividual"/>
+	<type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+		<plugin name="klevu_search_toolbar" type="Klevu\Search\Plugin\Catalog\Block\Toolbar" sortOrder="101"/>
+	</type>
+	<type name="Magento\CatalogSearch\Block\Result">
+		<plugin name="Klevu_Search::setpersonalization" type="Klevu\Search\Plugin\Search\Block\Result" sortOrder="101"/>
+	</type>
+	<type name="Magento\Elasticsearch\SearchAdapter\DocumentFactory">
+		<plugin name="Klevu_Search_Plugin_Elasticsearch_SearchAdapter" type="Klevu\Search\Plugin\Elasticsearch\SearchAdapter\DocumentFactory" sortOrder="101"/>
+	</type>
+	<type name="Magento\Framework\Api\Search\SearchResult">
+		<plugin name="Klevu_Search_Plugin_Api_Search_SearchResult" type="Klevu\Search\Plugin\Api\Search\SearchResult" sortOrder="101"/>
+	</type>
+	<type name="Magento\Framework\Console\CommandList">
+		<arguments>
+			<argument name="commands" xsi:type="array">
+				<item name="syncCommand" xsi:type="object">Klevu\Search\Console\Command\SyncCommand</item>
+				<item name="createCommand" xsi:type="object">Klevu\Search\Console\Command\UserCreation</item>
+				<item name="syncStoreViewData" xsi:type="object">Klevu\Search\Console\Command\SyncStoreView</item>
+				<item name="RatingGeneration" xsi:type="object">Klevu\Search\Console\Command\RatingGeneration</item>
+				<item name="ImageGeneration" xsi:type="object">Klevu\Search\Console\Command\ImageGeneration</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

@@ -1,0 +1,94 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php
+/** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Totals $block */
+/** @var \Magento\Sales\Model\Order $order */
+?>
+<?php $order = $block->getOrder(); ?>
+<?php $store = $order->getStore(); ?>
+<?php $hasDiscount = $block->hasDiscount(); ?>
+<?php $hasStoreCredit = $block->hasStoreCredit(); ?>
+<?php /** @var $block \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Totals */ ?>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item order-totals">
+            <legend class="admin__legend">
+                <span><?= $block->escapeHtml(__('New Totals')) ?></span>
+            </legend>
+            <br>
+            <table class="admin__table-secondary data-table new-totals"> <tr class=" row-totals"="">
+                <tbody>
+                    <?php foreach ($block->getTotals() as $total) : ?>
+                        <?php if (!$hasDiscount && $total->getCode() == 'grand_total') : ?>
+                            <tr>
+                                <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml(__('Discount')) ?></td>
+                                <td id="ordereditor-new-total-discount" class="admin__total-amount" style="">
+                                    <span class="price"><?= $block->escapeHtml($block->formatPrice(0)); ?></span>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php if ($total->getCode() == 'subtotal') : ?>
+                            <?php if ($block->isShowSubtotalExclTax($store)) :?>
+                                <tr>
+                                    <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml($total->getTitle()) . ' (' . $block->escapeHtml(__('Excl.Tax')) .')' ?></td>
+                                    <td id="ordereditor-new-total-<?= $block->escapeHtmlAttr($total->getCode()) ?>" class="admin__total-amount" style="">
+                                        <span class="price"><?= $block->escapeHtml($block->format($total->getValue())) ?></span>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                            <?php if ($block->isShowSubtotalInclTax($store)) :?>
+                                <tr>
+                                    <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml($total->getTitle()) . ' (' . $block->escapeHtml(__('Incl.Tax')) .')' ?></td>
+                                    <td id="ordereditor-new-total-<?= $block->escapeHtmlAttr($total->getCode()); ?>-incl-tax" class="admin__total-amount" style="">
+                                        <span class="price"><?= $block->escapeHtml($block->format($total->getValue())); ?></span>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php elseif ($total->getCode() == 'shipping') :?>
+                            <?php if ($block->isShowShippingExclTax($store)) :?>
+                                <tr>
+                                    <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml($total->getTitle()) . ' (' . $block->escapeHtml(__('Excl.Tax')) .')' ?></td>
+                                    <td id="ordereditor-new-total-shipping-<?= $block->escapeHtmlAttr($total->getCode()); ?>" class="admin__total-amount" style="">
+                                        <span class="price"><?= $block->escapeHtml($block->format($total->getValue())) ?></span>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                            <?php if ($block->isShowShippingInclTax($store)) :?>
+                                <tr>
+                                    <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml($total->getTitle()) . ' (' . $block->escapeHtml(__('Incl.Tax')) .')' ?></td>
+                                    <td id="ordereditor-new-total-shipping-<?= $block->escapeHtmlAttr($total->getCode()); ?>-incl-tax" class="admin__total-amount" style="">
+                                        <span class="price"><?= $block->escapeHtml($block->format($total->getValue())) ?></span>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <tr>
+                                <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml($total->getTitle()); ?></td>
+                                <td id="ordereditor-new-total-<?= $block->escapeHtmlAttr($total->getCode()); ?>" class="admin__total-amount" style="">
+                                    <span class="price"><?= $block->escapeHtml($block->format($total->getValue())); ?></span>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php if ($hasStoreCredit) : ?>
+                        <tr>
+                            <td class="admin__total-mark" style="" colspan="1"><?= $block->escapeHtml(__('Store Credit')); ?></td>
+                            <td id="ordereditor-new-total-store-credit" class="admin__total-amount" style="">
+                                <span class="price"><?= $block->escapeHtml($block->format($block->getStoreCredit())) ?></span>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+            <input type="hidden" id="ordereditor-subtotal-amount" value="<?= $block->escapeHtmlAttr($order->getSubtotal()); ?>" />
+            <input type="hidden" id="ordereditor-subtotal-tax-amount" value="<?= $block->escapeHtmlAttr($block->getSubtotalTaxAmount()); ?>" />
+            <input type="hidden" id="ordereditor-shipping-amount" value="<?= $block->escapeHtmlAttr($order->getShippingAmount()); ?>" />
+            <input type="hidden" id="ordereditor-shipping-tax-amount" value="<?= $block->escapeHtmlAttr($order->getShippingTaxAmount()); ?>" />
+            <input type="hidden" id="ordereditor-discount-amount" value="<?= $block->escapeHtmlAttr($order->getDiscountAmount()); ?>" />
+            <input type="hidden" id="ordereditor-shipping-discount-amount" value="<?= $block->escapeHtmlAttr($order->getShippingDiscountAmount()); ?>" />
+            <input type="hidden" id="ordereditor-discount-tax-compensation-amount" value="<?= $block->escapeHtmlAttr($order->getDiscountTaxCompensationAmount()); ?>" />
+        </div>
+    </div>

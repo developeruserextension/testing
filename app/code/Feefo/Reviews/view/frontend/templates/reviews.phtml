@@ -1,0 +1,9 @@
+<?php
+/** @var Feefo\Reviews\Block\ReviewsWidget $block */
+?>
+
+<?php if ($block->canRender() && $block->isEnabledWidget() && $block->isRightPlacement()) : ?>
+    <div id="feefo-review-container" data-role="feefo-review">
+        <?php echo $block->getSnippet(); ?>
+    </div>
+<?php endif; ?>

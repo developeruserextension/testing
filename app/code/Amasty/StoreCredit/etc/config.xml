@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amstorecredit>
+            <general>
+                <enabled>1</enabled>
+                <refund_automatically>1</refund_automatically>
+                <allow_on_tax>1</allow_on_tax>
+                <allow_on_shipping>1</allow_on_shipping>
+            </general>
+            <email>
+                <enabled>1</enabled>
+                <sender>general</sender>
+                <reply>general</reply>
+            </email>
+        </amstorecredit>
+    </default>
+</config>

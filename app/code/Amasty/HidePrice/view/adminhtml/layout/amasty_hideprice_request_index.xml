@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="amasty_hideprice_request_block"/>
+    <head>
+        <css src="Amasty_HidePrice::css/quote_request.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\HidePrice\Block\Adminhtml\Request\Comment"
+                   template="Amasty_HidePrice::quote_comment.phtml"
+                   before="amasty.hideprice.adminhtml.request.grid.container"/>
+            <block class="Amasty\HidePrice\Block\Adminhtml\Request"
+                   name="amasty.hideprice.adminhtml.request.grid.container"/>
+        </referenceContainer>
+    </body>
+</page>

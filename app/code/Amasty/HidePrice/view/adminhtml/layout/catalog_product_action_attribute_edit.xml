@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="attributes_tabs">
+            <block class="Amasty\HidePrice\Block\Adminhtml\Catalog\Product\Edit\Action\Attribute\Tab\HidePrice"
+                   name="amasty_hide_price"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">amasty_hide_price</argument>
+                <argument name="block" xsi:type="string">amasty_hide_price</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

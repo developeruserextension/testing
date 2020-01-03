@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Form\Account $block */?>
+<div id="account-form-wrapper">
+    <p class="message message-warning"><?= $block->escapeHtml($block->getNotice()); ?></p>
+    <form id="account_edit_form">
+        <?= /* @noEscape */ $block->getForm()->toHtml(); ?>
+    </form>
+    <?= /* @noEscape */ $block->getSubmitButtonHtml() ?>
+    <?= /* @noEscape */ $block->getCancelButtonHtml() ?>
+</div>

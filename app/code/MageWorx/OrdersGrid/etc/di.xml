@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageworx_sales_order_grid_data_source" xsi:type="string">MageWorx\OrdersGrid\Model\ResourceModel\Order\Grid\Collection</item>
+            </argument>
+        </arguments>
+        <plugin name="mageworx_ordersgrid_change_grid_collection"
+                type="MageWorx\OrdersGrid\Plugin\ChangeGridCollection"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order">
+        <plugin name="mageworx_ordersgrid_sync_order"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Invoice">
+        <plugin name="mageworx_ordersgrid_sync_order_invoice"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment\Track">
+        <plugin name="mageworx_ordersgrid_sync_order_shipment_track"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Shipment">
+        <plugin name="mageworx_ordersgrid_sync_order_shipment"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Address">
+        <plugin name="mageworx_ordersgrid_sync_order_address"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Item">
+        <plugin name="mageworx_ordersgrid_sync_order_item"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="Magento\Sales\Model\ResourceModel\Order\Tax">
+        <plugin name="mageworx_ordersgrid_sync_order_tax"
+                type="MageWorx\OrdersGrid\Plugin\Synchronize"
+                sortOrder="10"
+                disabled="false"/>
+    </type>
+    <type name="MageWorx\OrdersGrid\Ui\Component\MassAction\Additional" />
+    <type name="MageWorx\OrdersGrid\Ui\Component\MassAction\NotifyCustomer">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">mageworx_ordersgrid/order_grid/massShipInvoiceCapture</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MageWorx\OrdersGrid\Ui\Component\MassAction\DoNotNotifyCustomer">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">mageworx_ordersgrid/order_grid/massShipInvoiceCapture</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

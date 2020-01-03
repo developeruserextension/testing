@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="attachment_list"
+            class="Amasty\ProductAttachment\Block\Widgets\AttachmentsList"
+            is_email_compatible="true">
+        <label translate="true">Amasty Attachments Block</label>
+        <description translate="true">Add your attachments block everywhere!</description>
+        <parameters>
+            <parameter name="block_title" xsi:type="text" visible="true" sort_order="1">
+                <label translate="true">Block Title</label>
+            </parameter>
+            <parameter name="widget_type" xsi:type="select" visible="true"
+                       source_model="Amasty\ProductAttachment\Model\SourceOptions\WidgetType" sort_order="2">
+                <label translate="true">Widget Type</label>
+            </parameter>
+            <parameter name="show_icon" xsi:type="select" visible="true" sort_order="3">
+                <label translate="true">Show Icon</label>
+                <options>
+                    <option name="show" value="1" selected="true">
+                        <label translate="true">Yes</label>
+                    </option>
+                    <option name="hide" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="show_filesize" xsi:type="select" visible="true" sort_order="4">
+                <label translate="true">Show File Size</label>
+                <options>
+                    <option name="fshow" value="1" selected="true">
+                        <label translate="true">Yes</label>
+                    </option>
+                    <option name="fhide" value="0">
+                        <label translate="true">No</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="files" xsi:type="block" visible="true" required="false" sort_order="10">
+                <label translate="true">Selected Files</label>
+                <block class="Amasty\ProductAttachment\Block\Adminhtml\Widget\Chooser">
+                    <data>
+                        <item name="use_massaction" xsi:type="boolean">true</item>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Files...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="category" xsi:type="block" visible="true" required="false" sort_order="20">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="product" xsi:type="block" visible="true" required="false" sort_order="30">
+                <label translate="true">Product</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Product\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Product...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

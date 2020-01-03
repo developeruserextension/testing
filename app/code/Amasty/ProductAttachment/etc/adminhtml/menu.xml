@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_ProductAttachment::files" title="Product Attachments" module="Amasty_ProductAttachment" sortOrder="100" parent="Magento_Catalog::catalog" resource="Amasty_ProductAttachment::attachment"/>
+        <add id="Amasty_ProductAttachment::files_list" title="Attachments Management" module="Amasty_ProductAttachment" sortOrder="10" parent="Amasty_ProductAttachment::files" action="amfile/file/index" resource="Amasty_ProductAttachment::attachment"/>
+        <add id="Amasty_ProductAttachment::icon" title="Icon Management" module="Amasty_ProductAttachment" sortOrder="20" parent="Amasty_ProductAttachment::files" action="amfile/icon/index" resource="Amasty_ProductAttachment::icon"/>
+        <add id="Amasty_ProductAttachment::import" title="Mass File Import" module="Amasty_ProductAttachment" sortOrder="30" parent="Amasty_ProductAttachment::files" action="amfile/import/index" resource="Amasty_ProductAttachment::import"/>
+
+        <add id="Amasty_ProductAttachment::report" title="Product Attachments" module="Amasty_ProductAttachment" sortOrder="110" parent="Magento_Reports::report" resource="Amasty_ProductAttachment::reports"/>
+        <add id="Amasty_ProductAttachment::downloads" title="Downloads" module="Amasty_ProductAttachment" sortOrder="10" parent="Amasty_ProductAttachment::report" action="amfile/report/downloads" resource="Amasty_ProductAttachment::downloads"/>
+    </menu>
+</config>

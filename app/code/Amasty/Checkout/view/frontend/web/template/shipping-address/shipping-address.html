@@ -1,0 +1,20 @@
+<div class="checkout-shipping-address" data-bind="fadeVisible: customerHasAddresses">
+    <!-- ko template: 'Amasty_Checkout/shipping-address/shipping-address-components/details' --><!-- /ko -->
+    <fieldset class="fieldset">
+        <!-- ko template: 'Amasty_Checkout/shipping-address/shipping-address-components/list' --><!-- /ko -->
+        <!-- ko template: 'Amasty_Checkout/shipping-address/shipping-address-components/form' --><!-- /ko -->
+
+        <!-- ko if: (isAddressListVisible) -->
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action action-update" type="button" data-bind="click: updateAddress">
+                    <span data-bind="i18n: 'Update'"></span>
+                </button>
+                <button class="action action-cancel" type="button" data-bind="click: cancelAddressEdit">
+                    <span data-bind="i18n: 'Cancel'"></span>
+                </button>
+            </div>
+        </div>
+        <!-- /ko -->
+    </fieldset>
+</div>

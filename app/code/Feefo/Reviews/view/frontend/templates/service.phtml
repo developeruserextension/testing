@@ -1,0 +1,8 @@
+<?php
+/** @var Feefo\Reviews\Block\ServiceWidget $block */
+?>
+<?php if ($block->isEnabledWidget()) : ?>
+    <div id="feefo-rating-service">
+        <?php echo $block->getSnippet(); ?>
+    </div>
+<?php endif; ?>

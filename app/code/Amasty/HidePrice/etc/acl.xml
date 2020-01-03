@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Amasty_HidePrice::config"
+                                      title="Amasty Hide Price Settings"
+                                      sortOrder="100115" />
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::marketing">
+                    <resource id="Amasty_HidePrice::request" title="Amasty Hide Price" sortOrder="100116" />
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="feefo_reviews" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Feefo Reviews</label>
+            <tab>catalog</tab>
+            <resource>Feefo_Reviews::feefo_reviews_config</resource>
+            <group id="uninstall" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Uninstall Plugin Data</label>
+                <field id="uninstall_plugin" translate="button_label" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Uninstall Plugin Data</button_label>
+                    <frontend_model>Feefo\Reviews\Block\Adminhtml\System\Config\UninstallPluginField</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

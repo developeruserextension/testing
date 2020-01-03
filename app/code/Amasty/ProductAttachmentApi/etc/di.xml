@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachmentApi
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\ProductAttachmentApi\Api\UploadFileInterface" type="Amasty\ProductAttachmentApi\Model\UploadFile" />
+    <preference for="Amasty\ProductAttachmentApi\Api\Data\FileContentInterface" type="Amasty\ProductAttachmentApi\Model\File\FileContent" />
+
+    <preference for="Amasty\ProductAttachmentApi\Api\FrontendAttachmentInterface" type="Amasty\ProductAttachmentApi\Model\FrontendAttachment" />
+
+    <preference for="Amasty\ProductAttachmentApi\Api\BackendAttachmentInterface" type="Amasty\ProductAttachmentApi\Model\BackendAttachment" />
+    <preference for="Amasty\ProductAttachmentApi\Api\Data\BackendFileInterface" type="Amasty\ProductAttachmentApi\Model\File\BackendFile" />
+    <preference for="Amasty\ProductAttachmentApi\Api\DownloadFileInterface" type="Amasty\ProductAttachmentApi\Model\DownloadFile" />
+
+    <type name="Magento\Webapi\Controller\Rest\ParamsOverrider">
+        <arguments>
+            <argument name="paramOverriders" xsi:type="array">
+                <item name="%amasty_customer_group%" xsi:type="object">Amasty\ProductAttachmentApi\Model\ParamsOverrider\AmastyCustomerGroup\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

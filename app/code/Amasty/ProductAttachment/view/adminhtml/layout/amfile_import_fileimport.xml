@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="adminhtml_import_index"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\ProductAttachment\Block\Adminhtml\Import" name="ImportEntityTypeHider" template="Amasty_ProductAttachment::files_import.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="page.main.actions">
+            <block class="Amasty\ProductAttachment\Block\Adminhtml\Steps" name="import-steps" template="Amasty_ProductAttachment::import_steps.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

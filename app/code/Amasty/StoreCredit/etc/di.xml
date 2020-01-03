@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\StoreCredit\Api\ManageCustomerStoreCreditInterface" type="Amasty\StoreCredit\Model\StoreCredit\ManageCustomerStoreCredit"/>
+    <preference for="Amasty\StoreCredit\Api\StoreCreditRepositoryInterface" type="Amasty\StoreCredit\Model\StoreCredit\StoreCreditRepository"/>
+    <preference for="Amasty\StoreCredit\Api\Data\HistoryInterface" type="Amasty\StoreCredit\Model\History\History"/>
+    <preference for="Amasty\StoreCredit\Api\HistoryRepositoryInterface" type="Amasty\StoreCredit\Model\History\HistoryRepository"/>
+    <preference for="Amasty\StoreCredit\Api\ApplyStoreCreditToQuoteInterface" type="Amasty\StoreCredit\Model\StoreCredit\ApplyStoreCreditToQuote"/>
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="amstorecredit_refunded_amount" xsi:type="string">sales_order.amstorecredit_refunded_amount</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="AmastyResetStoreCredit" type="Amasty\StoreCredit\Plugin\ResetStoreCreditAfterItemDelete"/>
+    </type>
+</config>

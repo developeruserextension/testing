@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_HidePrice::request" title="Hide Price" module="Amasty_HidePrice" sortOrder="80"
+             parent="Magento_Backend::marketing"
+             resource="Amasty_HidePrice::request"/>
+        <add id="Amasty_HidePrice::request_manage" title="Get a Quote Requests" module="Amasty_HidePrice" sortOrder="10"
+             parent="Amasty_HidePrice::request"
+             action="amasty_hideprice/request/"
+             resource="Amasty_HidePrice::request"/>
+        <add id="Amasty_HidePrice::settings" title="Configuration" module="Amasty_HidePrice" sortOrder="20"
+             parent="Amasty_HidePrice::request"
+             action="adminhtml/system_config/edit/"
+             resource="Amasty_HidePrice::config"/>
+    </menu>
+</config>

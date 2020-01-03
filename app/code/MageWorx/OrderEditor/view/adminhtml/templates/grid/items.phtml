@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php $_order = $block->getOrder() ?>
+<div class="admin__table-wrapper order-items-block">
+    <table class="data-table admin__table-primary edit-order-table">
+        <thead>
+            <tr class="headings">
+                <th class="col-thumbnail">
+                    <span><?= $block->escapeHtml(__('Thumbnail')) ?></span>
+                </th>
+                <th class="col-product">
+                    <span><?= $block->escapeHtml(__('Product')) ?></span>
+                </th>
+                <th class="col-status">
+                    <span><?= $block->escapeHtml(__('Item Status')) ?></span>
+                </th>
+                <th class="col-price-original">
+                    <span><?= $block->escapeHtml(__('Original Price')) ?></span>
+                </th>
+                <th class="col-price">
+                    <span><?= $block->escapeHtml(__('Price')) ?></span>
+                </th>
+                <th class="col-ordered-qty">
+                    <span><?= $block->escapeHtml(__('Qty')) ?></span>
+                </th>
+                <th class="col-subtotal">
+                    <span><?= $block->escapeHtml(__('Subtotal')) ?></span>
+                </th>
+                <th class="col-tax-amount">
+                    <span><?= $block->escapeHtml(__('Tax Amount')) ?></span>
+                </th>
+                <th class="col-tax-percent">
+                    <span><?= $block->escapeHtml(__('Tax Percent')) ?></span>
+                </th>
+                <th class="col-discont">
+                    <span><?= $block->escapeHtml(__('Discount Amount')) ?></span>
+                </th>
+                <th class="col-total last">
+                    <span><?= $block->escapeHtml(__('Row Total')) ?></span>
+                </th>
+            </tr>
+        </thead>
+        <?php $_items = $block->getItemsCollection(); ?>
+        <?php $i = 0; ?>
+        <?php foreach ($_items as $_item) : ?>
+            <?php if ($_item->getParentItem()) {
+                continue;
+            } else {
+                $i++;
+            } ?>
+            <tbody class="<?= $i%2 ? 'even' : 'odd' ?>">
+                <?= /* @noEscape */ $block->getItemHtml($_item) ?>
+                <?= /* @noEscape */ $block->getItemExtraInfoHtml($_item) ?>
+            </tbody>
+        <?php endforeach; ?>
+    </table>
+</div>

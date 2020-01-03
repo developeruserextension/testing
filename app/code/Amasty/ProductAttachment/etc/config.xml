@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amfile>
+            <general>
+                <enabled>1</enabled>
+                <add_categories_files>1</add_categories_files>
+                <exclude_include_in_order_files>0</exclude_include_in_order_files>
+                <url_type>0</url_type>
+            </general>
+            <product_tab>
+                <block_location>product.info.details</block_location>
+                <customer_group>0,1</customer_group>
+                <block_enabled>1</block_enabled>
+                <block_filesize>1</block_filesize>
+                <block_fileicon>1</block_fileicon>
+                <block_sort_order>55</block_sort_order>
+                <block_label>Product Attachments</block_label>
+            </product_tab>
+            <order_view>
+                <show_attachments>1</show_attachments>
+                <label>Product Attachments</label>
+                <filesize>1</filesize>
+                <fileicon>1</fileicon>
+                <include_attachments_filter>0</include_attachments_filter>
+            </order_view>
+            <order_email>
+                <show_attachments>0</show_attachments>
+                <label>Product Attachments</label>
+                <include_attachments_filter>0</include_attachments_filter>
+            </order_email>
+            <import>
+                <ftp_dir>amasty/amfile/import/ftp</ftp_dir>
+            </import>
+            <additional>
+                <detect_mime>1</detect_mime>
+            </additional>
+        </amfile>
+    </default>
+</config>

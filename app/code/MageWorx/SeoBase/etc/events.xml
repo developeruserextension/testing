@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="cms_page_save_before">
+        <observer name="mw_seobase_observer_page_prepare_save" instance="MageWorx\SeoBase\Model\Observer\PagePrepareSaveObserver" />
+    </event>
+    <event name="mageworx_xmlsitemap_product_generation_before">
+        <observer
+            name="mageworx_seobase_apply_flexible_canonical_strategy"
+            instance="MageWorx\SeoBase\Model\Observer\XmlSitemap\ProductUrlGenerationObserver"
+        />
+    </event>
+</config>

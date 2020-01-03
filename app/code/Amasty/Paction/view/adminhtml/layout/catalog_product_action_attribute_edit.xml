@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_Paction
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="attributes_tabs">
+            <block class="Amasty\Paction\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\TierPrice" name="tab_tier_prices"/>
+            <action method="addTab">
+                <argument name="name" xsi:type="string">tier_prices</argument>
+                <argument name="block" xsi:type="string">tab_tier_prices</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

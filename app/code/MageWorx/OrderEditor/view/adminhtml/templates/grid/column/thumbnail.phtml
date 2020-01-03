@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Grid\Thumbnail $block */ ?>
+<?php if ($_item = $block->getItem()) : ?>
+    <?php $imgHelper = $block->getImageHelper($_item); ?>
+    <?php if ($imgHelper) : ?>
+        <img src="<?= $block->escapeUrl($imgHelper->resize(90, 90)->getUrl()); ?>"
+             height="90"
+             alt=""
+             align="left"
+             style="padding-right:2px;" />
+    <?php endif; ?>
+<?php endif; ?>

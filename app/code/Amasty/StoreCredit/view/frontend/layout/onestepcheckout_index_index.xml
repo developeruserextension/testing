@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_StoreCredit
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="totals" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="amstorecredit" xsi:type="array">
+                                            <item name="component"  xsi:type="string">Amasty_StoreCredit/js/view/checkout/totals/store-credit</item>
+                                            <item name="sortOrder" xsi:type="string">90</item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="payment-options" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="storecredit" xsi:type="array">
+                                            <item name="component" xsi:type="string">Amasty_StoreCredit/js/view/checkout/payment/store-credit</item>
+                                            <item name="sortOrder" xsi:type="string">10</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

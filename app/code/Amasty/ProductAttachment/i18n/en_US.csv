@@ -1,0 +1,181 @@
+"Are you sure you want to do this?","Are you sure you want to do this?"
+"Delete File","Delete File"
+"Delete Icon","Delete Icon"
+ID,ID
+"File Name","File Name"
+"File Label","File Label"
+"We can't change item right now. Please review the log and try again.","We can't change item right now. Please review the log and try again."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"No records have been changed.","No records have been changed."
+Success,Success
+"Empty Url","Empty Url"
+"You deleted the file.","You deleted the file."
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"Edit Attachment","Edit Attachment"
+"This attachment no longer exists.","This attachment no longer exists."
+"New Attachment","New Attachment"
+File,File
+"Attachments Management","Attachments Management"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"No records have been deleted.","No records have been deleted."
+"The wrong item is specified.","The wrong item is specified."
+"You saved the item.","You saved the item."
+"You deleted the icon.","You deleted the icon."
+"Edit Icon","Edit Icon"
+"This icon no longer exists.","This icon no longer exists."
+"New Icon","New Icon"
+Icon,Icon
+"Icon Management","Icon Management"
+"Upload Your Files","Upload Your Files"
+"Import Attachments","Import Attachments"
+"Product Attachments","Product Attachments"
+"Mass File Import","Mass File Import"
+"Select Stores For Configuration","Select Stores For Configuration"
+"Downloads report has been cleared.","Downloads report has been cleared."
+"Product Attachment Report","Product Attachment Report"
+Downloads,Downloads
+"Product Attachment Report Downloads","Product Attachment Report Downloads"
+"No such data provider","No such data provider"
+"No such save processor","No such save processor"
+"[STORE VIEW]","[STORE VIEW]"
+"Couldn't save file","Couldn't save file"
+"Unable to save file with ID %1. Error: %2","Unable to save file with ID %1. Error: %2"
+"Unable to save new file. Error: %1","Unable to save new file. Error: %1"
+"Disallowed Extension","Disallowed Extension"
+"File with specified ID ""%1"" not found.","File with specified ID ""%1"" not found."
+"File with specified Hash ""%1"" not found.","File with specified Hash ""%1"" not found."
+"Unable to remove file with ID %1. Error: %2","Unable to remove file with ID %1. Error: %2"
+"Unable to remove icon. Error: %1","Unable to remove icon. Error: %1"
+"Directory Code doesn't exist.","Directory Code doesn't exist."
+"File can not be saved to the destination folder.","File can not be saved to the destination folder."
+Disabled,Disabled
+Enabled,Enabled
+"Unable to save icon with ID %1. Error: %2","Unable to save icon with ID %1. Error: %2"
+"Unable to save new icon. Error: %1","Unable to save new icon. Error: %1"
+"Icon with specified ID ""%1"" not found.","Icon with specified ID ""%1"" not found."
+"Unable to remove icon with ID %1. Error: %2","Unable to remove icon with ID %1. Error: %2"
+"Import with specified ID ""%1"" not found.","Import with specified ID ""%1"" not found."
+"Unable to save import with ID %1. Error: %2","Unable to save import with ID %1. Error: %2"
+"Unable to save new import. Error: %1","Unable to save new import. Error: %1"
+Add,Add
+Link,Link
+"NOT LOGGED IN","NOT LOGGED IN"
+Product,Product
+Category,Category
+Order,Order
+Other,Other
+"`Include In Order` Only","`Include In Order` Only"
+"All Product Attachments","All Product Attachments"
+Id,Id
+Hash,Hash
+"Current Category","Current Category"
+"Specific Category","Specific Category"
+"Current Product","Current Product"
+"Specific Product","Specific Product"
+"Custom Files","Custom Files"
+Cancel,Cancel
+Back,Back
+Next,Next
+Remove,Remove
+"Sort Option","Sort Option"
+Delete,Delete
+"Generate Import File","Generate Import File"
+Finish,Finish
+General,General
+"Enable Module","Enable Module"
+"Add Category Files to Products","Add Category Files to Products"
+"Display `Include In Order` Files on Product Pages and Widgets","Display `Include In Order` Files on Product Pages and Widgets"
+"Url Creation Type","Url Creation Type"
+"ID type URL: http://domain.zone/amfile/download/file/22. Hash type URL: http://domain.zone/amfile/download/file/8a9e07bad0166438b0b64a91b235ca4e","ID type URL: http://domain.zone/amfile/download/file/22. Hash type URL: http://domain.zone/amfile/download/file/8a9e07bad0166438b0b64a91b235ca4e"
+"Product Tab","Product Tab"
+"Show `Product Attachments` Tab","Show `Product Attachments` Tab"
+"Tab Title","Tab Title"
+"Choose Customer Groups to show the Tab","Choose Customer Groups to show the Tab"
+"Don't choose any or select all to show the tab to all customer groups.","Don't choose any or select all to show the tab to all customer groups."
+"Show File Icon","Show File Icon"
+"Show File Size","Show File Size"
+"Tab Position","Tab Position"
+"Sort order should be greater than 0","Sort order should be greater than 0"
+"Order View Page","Order View Page"
+"Show Attachments","Show Attachments"
+"Title for Attachments Block","Title for Attachments Block"
+"Type of Attachments to Display","Type of Attachments to Display"
+"Order Status","Order Status"
+"Leave the field empty to show attachments in all statuses","Leave the field empty to show attachments in all statuses"
+"Order Email","Order Email"
+"Add Attachments to Transactional Emails","Add Attachments to Transactional Emails"
+"Type of Attachments to Add","Type of Attachments to Add"
+"Additional Settings","Additional Settings"
+"Autodetect File Mime Type on Download","Autodetect File Mime Type on Download"
+"Amasty Attachments Block","Amasty Attachments Block"
+"Add your attachments block everywhere!","Add your attachments block everywhere!"
+"Block Title","Block Title"
+"Widget Type","Widget Type"
+"Show Icon","Show Icon"
+Yes,Yes
+No,No
+"Selected Files","Selected Files"
+"Select Files...","Select Files..."
+"Select Category...","Select Category..."
+"Select Product...","Select Product..."
+"Clear File Downloads","Clear File Downloads"
+"All Store Views","All Store Views"
+"Store View","Store View"
+"File ID","File ID"
+"Download Source","Download Source"
+"Downloaded At","Downloaded At"
+"Save Attachment","Save Attachment"
+"Save and Continue Edit","Save and Continue Edit"
+"File Info Fields","File Info Fields"
+"Attachment Name","Attachment Name"
+Label,Label
+"Customer Groups","Customer Groups"
+"Is Visible","Is Visible"
+"Include In Order","Include In Order"
+"Attach To","Attach To"
+"Use [All Store Views] Categories","Use [All Store Views] Categories"
+"Use [All Store Views] Products","Use [All Store Views] Products"
+"Add products","Add products"
+"Add Selected Products","Add Selected Products"
+Thumbnail,Thumbnail
+Name,Name
+Status,Status
+Type,Type
+SKU,SKU
+Price,Price
+Actions,Actions
+"Add New File","Add New File"
+"Attachment Type","Attachment Type"
+"Mime Type","Mime Type"
+"File Size","File Size"
+Edit,Edit
+"Add New Attachment","Add New Attachment"
+"Delete items","Delete items"
+"Are you sure you want to delete selected items?","Are you sure you want to delete selected items?"
+"Save Icon","Save Icon"
+"Product Attachment Icon","Product Attachment Icon"
+"File Extensions","File Extensions"
+"Add Extension","Add Extension"
+"Remove Extension","Remove Extension"
+"File Extension","File Extension"
+"Add New Icon","Add New Icon"
+Extensions,Extensions
+"Prepare Files","Prepare Files"
+"You can upload your files in <b>pub/media/amasty/amfile/import/ftp</b> folder","You can upload your files in <b>pub/media/amasty/amfile/import/ftp</b> folder"
+"File Id","File Id"
+Extension,Extension
+Visible,Visible
+"Add New Files","Add New Files"
+"New Import","New Import"
+"Created Date","Created Date"
+Continue,Continue
+"Stores Configuration","Stores Configuration"
+"Configurate Your Stores","Configurate Your Stores"
+"Select Store Views","Select Store Views"
+"Add Existing Attachments","Add Existing Attachments"
+"Add New Links","Add New Links"
+"Add Attachments","Add Attachments"
+"Add Selected Attachments","Add Selected Attachments"
+"Add Links","Add Links"
+"Remove Link","Remove Link"
+FileId,FileId

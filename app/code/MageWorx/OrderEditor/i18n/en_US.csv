@@ -1,0 +1,177 @@
+"Are you sure you want to completely delete selected order?","Are you sure you want to completely delete selected order?"
+Delete,Delete
+"Customer Firstname","Customer Firstname"
+"Customer Lastname","Customer Lastname"
+"Select a Customer","Select a Customer"
+Submit,Submit
+Cancel,Cancel
+"Note that changing the customer's details won't recalculate the taxes and discounts.
+            You should adjust the prices manually if necessary.","Note that changing the customer's details won't recalculate the taxes and discounts.
+            You should adjust the prices manually if necessary."
+ID,ID
+Email,Email
+Firstname,Firstname
+Lastname,Lastname
+Group,Group
+Store,Store
+"Created At","Created At"
+"Updated At","Updated At"
+"Order Date","Order Date"
+Status,Status
+State,State
+"Note that changing the order's details won't recalculate the taxes and discounts.
+            You should adjust the prices manually if necessary.","Note that changing the order's details won't recalculate the taxes and discounts.
+            You should adjust the prices manually if necessary."
+"Add Products","Add Products"
+"Can not load order item","Can not load order item"
+"Add Selected Product(s) to Order","Add Selected Product(s) to Order"
+Configure,Configure
+"The order id must be set.","The order id must be set."
+"Empty param address_id","Empty param address_id"
+"Have not address data information","Have not address data information"
+"An error occurred on the server. Please try to place the order again.","An error occurred on the server. Please try to place the order again."
+"Empty param %1","Empty param %1"
+"Can not load block","Can not load block"
+"Can not load order with id %1","Can not load order with id %1"
+"Order item id is not received.","Order item id is not received."
+"Quote item is not loaded.","Quote item is not loaded."
+"Order item is not loaded.","Order item is not loaded."
+"Required quote with id %1 does not exist.","Required quote with id %1 does not exist."
+"Can not load address","Can not load address"
+"Quote item id is not received.","Quote item id is not received."
+"The order %1 was successfully deleted.","The order %1 was successfully deleted."
+"Order id is not set.","Order id is not set."
+"Gateway rejected the transaction.","Gateway rejected the transaction."
+"There is no Order in the registry","There is no Order in the registry"
+"Address must be loaded before.","Address must be loaded before."
+"Create new invoice (if possible)","Create new invoice (if possible)"
+"Delete invoices and credit memos, create new invoice instead","Delete invoices and credit memos, create new invoice instead"
+"Do not touch","Do not touch"
+"Add new shipment","Add new shipment"
+"Delete shipment(s) and create new","Delete shipment(s) and create new"
+"Something goes wrong while cancelling credit memos. Original error message: %1","Something goes wrong while cancelling credit memos. Original error message: %1"
+"To perform update the order id should be specified","To perform update the order id should be specified"
+"Not all selected products were added to the order as some products are currently unavailable.","Not all selected products were added to the order as some products are currently unavailable."
+"An issue occurred when trying to add product ID %1 to the order.","An issue occurred when trying to add product ID %1 to the order."
+"There was no order item for the quote item with id %1","There was no order item for the quote item with id %1"
+"Incorrect params for edit order items","Incorrect params for edit order items"
+"Something goes wrong while sync quote items. Original error message: %1","Something goes wrong while sync quote items. Original error message: %1"
+"Delete related order info error: %1","Delete related order info error: %1"
+"Delete related invoices error: %1","Delete related invoices error: %1"
+"Delete related shipments error: %1","Delete related shipments error: %1"
+"Delete related credit memos error: %1","Delete related credit memos error: %1"
+"Error while removing order items: %1","Error while removing order items: %1"
+"Error while removing related order items: %1","Error while removing related order items: %1"
+"Error while canceling invoices: %1","Error while canceling invoices: %1"
+"Error while removing quote items: %1","Error while removing quote items: %1"
+"Error while removing downloadable product links: %1","Error while removing downloadable product links: %1"
+"Item id is not defined","Item id is not defined"
+"Error while adding (saving) new order item: %1","Error while adding (saving) new order item: %1"
+"Error while saving order item: %1","Error while saving order item: %1"
+"Error while updating inventory after updating product options: %1","Error while updating inventory after updating product options: %1"
+"Error while adding downloadable product link: %1","Error while adding downloadable product link: %1"
+"Error while removing downloadable product link: %1","Error while removing downloadable product link: %1"
+"Error while deleting tax item: %1","Error while deleting tax item: %1"
+"Error while saving tax: %1","Error while saving tax: %1"
+"Error while saving tax item: %1","Error while saving tax item: %1"
+"Error while updating product qty: %1","Error while updating product qty: %1"
+"Error while removing product from inventory: %1","Error while removing product from inventory: %1"
+"Error while updating item data: %1","Error while updating item data: %1"
+"Could not save the entity: %1","Could not save the entity: %1"
+"Could not delete the entity: %1","Could not delete the entity: %1"
+"Entity with id ""%1"" does not exist.","Entity with id ""%1"" does not exist."
+"Entity must be instance of \Magento\Framework\Model\AbstractModel","Entity must be instance of \Magento\Framework\Model\AbstractModel"
+"Order is not set!","Order is not set!"
+"Can not create invoice","Can not create invoice"
+"Can not create shipment","Can not create shipment"
+"Order must be set","Order must be set"
+"This is the wrong quote item id to update configuration.","This is the wrong quote item id to update configuration."
+"We found an invalid request for adding product to quote.","We found an invalid request for adding product to quote."
+"Something goes wrong while cancelling shipments. Original error message: %1","Something goes wrong while cancelling shipments. Original error message: %1"
+"Unable to load Quote. Original error message: %1","Unable to load Quote. Original error message: %1"
+"Exception during tax calculations: no order selected","Exception during tax calculations: no order selected"
+"Something goes wrong while deducting tax amounts. Original error message: %1","Something goes wrong while deducting tax amounts. Original error message: %1"
+"Something goes wrong while increasing tax amounts. Original error message: %1","Something goes wrong while increasing tax amounts. Original error message: %1"
+"Unable to delete old tax. Original error message: %1","Unable to delete old tax. Original error message: %1"
+Success,Success
+Fraud,Fraud
+Device,Device
+Area,Area
+"Credit Card Type","Credit Card Type"
+"Please Select","Please Select"
+"Credit Card Number","Credit Card Number"
+"Expiration Date","Expiration Date"
+"Card Verification Number","Card Verification Number"
+"Changing address information will not recalculate tax.","Changing address information will not recalculate tax."
+Product,Product
+"Item Status","Item Status"
+"Original Price","Original Price"
+Price,Price
+Qty,Qty
+Subtotal,Subtotal
+Tax,Tax
+Discount,Discount
+"Row Total","Row Total"
+Action,Action
+"No ordered items","No ordered items"
+SKU,SKU
+New,New
+Excl.Tax:,Excl.Tax:
+"Price excl tax","Price excl tax"
+Incl.Tax:,Incl.Tax:
+"Price incl. tax","Price incl. tax"
+Ordered,Ordered
+Invoiced,Invoiced
+Refunded,Refunded
+Shipped,Shipped
+Canceled,Canceled
+Excl.Tax,Excl.Tax
+"Subtotal excl. tax","Subtotal excl. tax"
+Incl.Tax,Incl.Tax
+"Subtotal incl. tax","Subtotal incl. tax"
+Amount,Amount
+"Tax amount","Tax amount"
+"Discount amount","Discount amount"
+Total,Total
+"Please select","Please select"
+Remove,Remove
+Percent,Percent
+"Tax percent","Tax percent"
+"Tax Rate","Tax Rate"
+"No Tax Rate","No Tax Rate"
+"Select Rates:","Select Rates:"
+"Tax Rates","Tax Rates"
+"Discount percent","Discount percent"
+"Back to stock","Back to stock"
+"No Payment Methods","No Payment Methods"
+"Incl. Tax","Incl. Tax"
+"Excl. Tax","Excl. Tax"
+"Price Excl. Tax","Price Excl. Tax"
+"Tax Percent","Tax Percent"
+"Price Incl. Tax","Price Incl. Tax"
+"Shipping Discount Amount","Shipping Discount Amount"
+"Sorry, no quotes are available for this order.","Sorry, no quotes are available for this order."
+"You do not need to select a shipping method.","You do not need to select a shipping method."
+"New Totals","New Totals"
+"Store Credit","Store Credit"
+Thumbnail,Thumbnail
+"Tax Amount","Tax Amount"
+"Discount Amount","Discount Amount"
+"Please select a customer","Please select a customer"
+"Please select a customer.","Please select a customer."
+Continue,Continue
+Edit,Edit
+"Something went wrong. Please, reload the page and try again.","Something went wrong. Please, reload the page and try again."
+"Something goes wrong","Something goes wrong"
+"Sorry, but you can not delete all items in order. Maybe, better remove this order?","Sorry, but you can not delete all items in order. Maybe, better remove this order?"
+"Warning! Requested quantity for some items are not available. Please, recheck or update changes.","Warning! Requested quantity for some items are not available. Please, recheck or update changes."
+"Order Management","Order Management"
+"Order Editor","Order Editor"
+"Invoices / Shipments / Credit Memos","Invoices / Shipments / Credit Memos"
+"Update Invoices/Credit Memos","Update Invoices/Credit Memos"
+"Update Shipments","Update Shipments"
+"Order Items","Order Items"
+"Return Item To Stock","Return Item To Stock"
+"MageWorx Payment Method","MageWorx Payment Method"
+Enable,Enable
+Title,Title

@@ -1,0 +1,49 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+?>
+<?php
+/** @var \Amasty\ProductAttachment\Block\Adminhtml\Steps $block */
+?>
+<div class="steps-wizard amfile-steps-wizard">
+    <div data-role="steps-wizard-controls" class="steps-wizard-navigation">
+        <ul class="nav-bar">
+            <?php foreach ($block->getSteps() as $step => $caption) { ?>
+                <li data-role="collapsible" data-bind="css: { 'active': <?= ($step === $block->getCurrentStep() ? 'true' : 'false') ?>}">
+                    <a href="#">
+                        <?= $block->escapeHtml(__($caption)) ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+        <div class="nav-bar-outer-actions">
+                <div class="action-wrap" data-role="closeBtn">
+                    <button type="button"
+                            class="action-cancel action-tertiary" onclick="location.href = '<?= $block->escapeUrl($block->getImportListingUrl()) ?>'">
+                        <span><?= $block->escapeHtml(__('Cancel')) ?></span>
+                    </button>
+                </div>
+            <div class="action-wrap action-wrap-prev" data-role="step-wizard-prev">
+                <button type="button"
+                        class="action-default action-back-step"
+                        <?= ($block->getBackLink() ? '' : 'disabled="true"') ?>
+                        <?= ($block->getBackLink() ? 'onclick="location.href=\'' . $block->escapeUrl($block->getBackLink()) . '\'"' : '') ?>>
+                    <span><?= /* @escapeNotVerified */  __('Back') ?></span>
+                </button>
+            </div>
+            <div class="action-wrap action-wrap-next" data-role="step-wizard-next">
+                <button type="button"
+                        class="action-default action-primary action-next-step save"
+                        id="save"
+                        data-ui-id="save-button"
+                        <?= ($block->getNextLink() ? '' : 'disabled="true"') ?>
+                        <?= ($block->getNextLink() ? 'onclick="location.href=\'' . $block->escapeUrl($block->getNextLink()) . '\'"' : '') ?>>
+                    <span><?= /* @escapeNotVerified */  __('Next') ?></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>

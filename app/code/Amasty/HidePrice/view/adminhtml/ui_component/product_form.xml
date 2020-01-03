@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="amasty_hide_price">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="dataScope" xsi:type="string">data.product</item>
+                <item name="provider" xsi:type="string">product_form.product_form_data_source</item>
+                <item name="label" xsi:type="string" translate="true">Hide Price</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">100</item>
+            </item>
+        </argument>
+
+        <container name="container_amasty_hide_price_mode">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="dataScope" xsi:type="string"/>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                </item>
+            </argument>
+            <field name="am_hide_price_mode">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Amasty\HidePrice\Model\Source\PriceMode</item>
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Display Price Mode</item>
+                        <item name="comment" xsi:type="string" translate="true">Leave -- Default Config -- to keep using the Stores > Configuration > Hide Price settings</item>
+                        <item name="formElement" xsi:type="string">select</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                        <item name="dataScope" xsi:type="string">am_hide_price_mode</item>
+                        <item name="caption" xsi:type="string" translate="true">-- Default Config --</item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+
+        <container name="container_amasty_hide_price_customer_group">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+                    <item name="dataScope" xsi:type="string"/>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                </item>
+            </argument>
+            <field name="am_hide_price_customer_gr">
+                <argument name="data" xsi:type="array">
+                    <item name="options" xsi:type="object">Amasty\HidePrice\Model\Source\Group</item>
+                    <item name="config" xsi:type="array">
+                        <item name="label" xsi:type="string" translate="true">Use Current Price Mode By Customer Group</item>
+                        <item name="comment" xsi:type="string" translate="true">Enable Display Price Mode for the selected customer groups only</item>
+                        <item name="formElement" xsi:type="string">multiselect</item>
+                        <item name="dataScope" xsi:type="string">am_hide_price_customer_gr</item>
+                        <item name="sortOrder" xsi:type="number">30</item>
+                        <item name="scopeLabel" xsi:type="string">[STORE VIEW]</item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+    </fieldset>
+</form>

@@ -1,0 +1,18 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+?>
+<?php
+/**
+ * @var \Amasty\ProductAttachment\Block\Order\Email\Attachments $block
+ */
+if ($attachments = $block->getAttachments()) :
+    ?>
+        <br><b><?= $block->escapeHtml($this->getBlockTitle()); ?></b>
+        <?php foreach ($attachments as $attachment) : ?>
+            <p><a href="<?= $block->escapeUrl($attachment->getFrontendUrl()); ?>" target="_blank"><?= $block->escapeHtml($attachment->getLabel()); ?></a></p>
+        <?php endforeach; ?>
+<?php endif; ?>

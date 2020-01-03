@@ -1,0 +1,172 @@
+<?php
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+<?php /** @var \MageWorx\OrderEditor\Block\Adminhtml\Sales\Order\Edit\Form\Items\Type\AbstractType $block */ ?>
+
+<?php $item = $block->getOrderItem() ?>
+<?php $itemType = $block->getEditedItemType(); ?>
+<?php $itemId = $block->getOrderItemHtmlId(); ?>
+<?php $parentItemId = $item->getParentItemHtmlId(); ?>
+<?php $hasParent  = $block->hasOrderItemParent(); ?>
+<?php $canEditItem = true; ?>
+<?php $canDeleteItem = $block->getCanDeleteItem(); ?>
+
+<tr id="order_item_<?= $block->escapeHtml($itemId); ?>"
+    data-item-id="<?= $block->escapeHtmlAttr($itemId); ?>">
+
+    <!-- Name, SKU, configure button, hidden params -->
+    <td class="col-product">
+        <span id="order_item_<?= $block->escapeHtmlAttr($itemId); ?>_title"><?= $block->escapeHtml($item->getName()) ?></span>
+        <div class="product-sku-block">
+            <span><?= $block->escapeHtml(__('SKU')); ?>:</span>
+            <?= /* @noEscape */ implode('<br />', $block->getCatalogHelper()->splitSku($block->escapeHtml($item->getSku()))); ?>
+        </div>
+
+        <input type="hidden"
+               value="<?= $block->escapeHtmlAttr($item->getId()); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][item_id]"/>
+        <input type="hidden"
+               value="<?= $block->escapeHtmlAttr($itemType); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][item_type]"/>
+        <input type="hidden" class="mw-order-editor-order-item"
+               value="<?= $block->escapeHtmlAttr($item->getProductId()); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][product_id]"/>
+        <input type="hidden" class="mw-order-editor-order-item"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('discount_tax_compensation_amount')); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][discount_tax_compensation_amount]"/>
+        <input type="hidden" class="mw-order-editor-order-item"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('weee_tax_applied_row_amount')); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][weee_tax_applied_row_amount]"/>
+    </td>
+
+    <!-- Item Status -->
+    <td class="col-status">
+        <?= ($itemType == 'quote') ? $block->escapeHtml(__('New')) : $block->escapeHtml($item->getStatus()); ?>
+    </td>
+
+    <!-- Original Price -->
+    <td class="col-price-original">
+        <?= /* @noEscape */ $block->displayPriceAttribute('original_price') ?>
+    </td>
+
+    <!-- Price -->
+    <td class="col-price">
+        <label><?= $block->escapeHtml(__('Excl.Tax:')); ?>&nbsp;<b><?= /* @noEscape */ $block->getPriceHtml('price'); ?></b></label><br/>
+        <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][price]" disabled="disabled"
+               title="<?= $block->escapeHtml(__("Price excl tax")); ?>"
+               class="mw-order-editor-order-item required-entry validate-number disabled"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('price')); ?>"/><br/>
+        <label><?= $block->escapeHtml(__('Incl.Tax:')); ?>&nbsp;<b><?= $block->escapeHtml($block->getPriceHtml('price_incl_tax')); ?></b></label><br/>
+        <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][price_incl_tax]" disabled="disabled"
+               title="<?= $block->escapeHtml(__("Price incl. tax")); ?>"
+               class="mw-order-editor-order-item required-entry validate-number disabled"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('price_incl_tax')); ?>"/>
+    </td>
+
+    <!-- Quantity -->
+    <td class="col-qty">
+        <table class="qty-table">
+            <tr>
+                <td><?= $block->escapeHtml(__("Ordered")); ?></td><td><?= $item->getQtyOrdered() * 1; ?></td>
+            </tr>
+            <?php if ($item->getQtyInvoiced() > 0) : ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__("Invoiced")); ?></td><td><?= $item->getQtyInvoiced() * 1; ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($item->getQtyRefunded() > 0) : ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__("Refunded")); ?></td><td><?= $item->getQtyRefunded() * 1; ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($item->getQtyShipped() > 0) : ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__("Shipped")); ?></td><td><?= $item->getQtyShipped() * 1; ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($item->getQtyCanceled() > 0) : ?>
+                <tr>
+                    <td><?= $block->escapeHtml(__("Canceled")); ?></td><td><?= $item->getQtyCanceled() * 1; ?></td>
+                </tr>
+            <?php endif; ?>
+            <tr>
+                <td><b><?= $block->escapeHtml(__("New")); ?></b></td>
+                <td>
+                    <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][fact_qty]"
+                           class="mw-order-editor-order-item required-entry validate-number qty_input
+                            <?php if (!$canDeleteItem) :
+                                echo 'cancelled" readonly="readonly"';
+                           else :
+                               echo '"';
+                           endif; ?>"
+                           data-item-id="<?= $block->escapeHtmlAttr($itemId); ?>"
+                           value="<?= $block->getItemQty() * 1 ?>"
+                </td>
+            </tr>
+        </table>
+    </td>
+
+    <!-- Subtotal -->
+    <td class="col-subtotal">
+        <?= $block->escapeHtml(__("Excl.Tax")); ?>:&nbsp;<b><?= /* @noEscape */ $block->getPriceHtml('base_row_total'); ?></b>
+        <input type="text" class="mw-order-editor-order-item required-entry validate-number disabled"
+               title="<?= $block->escapeHtml(__("Subtotal excl. tax")); ?>"
+                <?php if ($item->getQtyRefunded() > 0) : ?>readonly="readonly"<?php endif; ?>
+               value="<?= $block->escapeHtmlAttr($block->getPrice('base_row_total')); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][subtotal]"/>
+        <br/>
+
+        <?= $block->escapeHtml(__("Incl.Tax")); ?>:&nbsp;<b><?= /* @noEscape */ $block->getPriceHtml('base_row_total_incl_tax'); ?></b>
+        <input type="text" class="mw-order-editor-order-item required-entry validate-number disabled"
+               title="<?= $block->escapeHtml(__("Subtotal incl. tax")); ?>"
+                <?php if ($item->getQtyRefunded() > 0) : ?>readonly="readonly"<?php endif; ?>
+               value="<?= $block->escapeHtmlAttr($block->getPrice('base_row_total_incl_tax')); ?>"
+               name="item[<?= $block->escapeHtmlAttr($itemId); ?>][subtotal_incl_tax]"/>
+    </td>
+
+    <!-- Tax Amount/Percent -->
+    <td class="col-tax">
+        <?= $block->escapeHtml(__("Amount")); ?>:&nbsp;<b><?= /* @noEscape */ $block->getPriceHtml('tax_amount'); ?></b>
+        <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][tax_amount]"
+               title="<?= $block->escapeHtmlAttr(__("Tax amount")); ?>"
+               class="mw-order-editor-order-item required-entry validate-number disabled"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('base_tax_amount')); ?>"/>
+    </td>
+
+    <!-- Discount Amount/Percent-->
+    <td class="col-discount">
+        <label><?= $block->escapeHtml(__("Amount")); ?>:&nbsp;<b><?= /* @noEscape */ $block->getPriceHtml('discount_amount'); ?></b></label><br/>
+        <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][discount_amount]" disabled="disabled"
+               title="<?= $block->escapeHtmlAttr(__("Discount amount")) ?>"
+               class="mw-order-editor-order-item required-entry validate-number disabled"
+               value="<?= $block->escapeHtmlAttr($block->getPrice('base_discount_amount')); ?>"/>
+    </td>
+
+    <!-- Row total -->
+    <td class="col-row-total">
+        <label><b><?= /* @noEscape */ $block->getItemTotalHtml() ?></b></label><br/>
+        <input type="text" name="item[<?= $block->escapeHtmlAttr($itemId); ?>][row_total]"
+               title="<?= $block->escapeHtmlAttr(__("Total")); ?>"
+               class="mw-order-editor-order-item required-entry validate-number total_input disabled"
+               value="<?= $block->escapeHtmlAttr($block->getBaseItemTotal()); ?>"/>
+    </td>
+
+    <!-- Actions -->
+    <td class="col-actions last">
+        <?php if ($canDeleteItem) : ?>
+            <select class="admin__control-select
+                    <?php if ($itemType != 'quote') : ?> item-action-dropdown" id="action_dropdown_<?= $block->escapeHtmlAttr($itemId); ?>"
+                    <?php else : ?>remove_quote_item"
+                    <?php endif; ?>
+                    data-item-id="<?= $block->escapeHtmlAttr($itemId) ?>"
+                    <?php if ($hasParent) : ?>data-parent-id="<?= $block->escapeHtmlAttr($parentItemId) ?>"<?php endif; ?>
+                    name="item[<?= $block->escapeHtml($itemId) ?>][action]">
+                <option value=""><?= $block->escapeHtml(__('Please select')) ?></option>
+                <option value="remove"><?= $block->escapeHtml(__('Remove')) ?></option>
+            </select>
+        <?php endif; ?>
+    </td>
+</tr>

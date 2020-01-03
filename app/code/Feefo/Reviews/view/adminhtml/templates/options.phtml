@@ -1,0 +1,37 @@
+<?php
+/** @var \Feefo\Reviews\Block\Adminhtml\Options $block */
+
+$isWebsiteReady = $block->isWebsiteReady();
+?>
+
+<?php if (!$isWebsiteReady) : ?>
+<div class="websites-list-block">
+    <h2 class="feefo-options-heading"><?php echo __('Please select the website') ?>:</h2>
+    <ul class="websites-list-buttons">
+    <?php $websites = $block->getAvailableWebsites(); ?>
+    <?php foreach ($websites as $websiteUrl) : ?>
+        <li class="website-list-item-buttons">
+            <a class="button action-default" href="<?php echo $block->getUrl('feefo/options/index',
+                [
+                    '_secure' => $block->isSecureRequest(),
+                    'website_url' => $block->getEncodedUrl($websiteUrl)
+                ]); ?>"><?php echo $websiteUrl ?></a>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php else : ?>
+    <?php $optionsPageLink = $block->getOptionsPageLink(); ?>
+    <?php if ($optionsPageLink) : ?>
+        <h2 class="feefo-options-heading"><?php echo __('Website') ?>: <?php echo $this->getCurrentWebsiteUrl() ?></h2>
+        <div class="select-another-website">
+            <a class="button action-default" href="<?php echo $block->getUrl('feefo/options/unsetWebsite') ?>">
+                <?php echo __('Select Another Website'); ?></a>
+        </div>
+        <div class="frame-wrapper">
+            <iframe id="feefo" name="feefo" src="<?php echo $block->getOptionsPageLink(); ?>" frameborder="0"></iframe>
+        </div>
+    <?php else : ?>
+        <?php echo $block->getChildHtml('error'); ?>
+    <?php endif; ?>
+<?php endif; ?>

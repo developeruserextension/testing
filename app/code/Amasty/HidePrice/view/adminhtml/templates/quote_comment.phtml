@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_HidePrice
+ */
+?>
+<?php
+/** \Amasty\HidePrice\Block\Adminhtml\Request\Comment $block */
+?>
+
+<?php if ($block->isNeedShow()) : ?>
+    <div class="hide-quote-comment"><?= __(
+            'If you use Custom Form for Get a Quote Requests please click <a href="%1">here</a> to review the submitted data.',
+            $block->getLink()
+        ) ?></div>
+<?php endif; ?>

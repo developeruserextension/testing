@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <feefo>
+            <general>
+                <base_url><![CDATA[https://register.feefo.com/]]></base_url>
+                <website_id><![CDATA[0]]></website_id>
+            </general>
+            <entry_points>
+                <registration><![CDATA[api/ecommerce/plugin/magento2/register]]></registration>
+                <uninstall><![CDATA[api/ecommerce/plugin/magento2/uninstall]]></uninstall>
+                <get_widget_configs><![CDATA[api/ecommerce/plugin/magento2/widget/:{pluginId}/:{hmac}]]></get_widget_configs>
+                <set_widget_configs><![CDATA[api/ecommerce/plugin/magento2/widget]]></set_widget_configs>
+            </entry_points>
+        </feefo>
+    </default>
+</config>

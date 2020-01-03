@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Feefo_Reviews::css/styles.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Feefo\Reviews\Block\Adminhtml\Options" name="adminhtml.feefo_reviews.options" >
+                <block class="Magento\Backend\Block\Template" name="adminhtml.feefo_reviews.options.error" as="error" template="Feefo_Reviews::error.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

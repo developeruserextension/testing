@@ -1,0 +1,48 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+?>
+<?php
+/**
+ * @var \Amasty\ProductAttachment\Block\Adminhtml\Import $block
+ */
+?>
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert',
+            'prototype'
+        ], function($) {
+            //<![CDATA[
+            var entity = $('#entity');
+            entity.hide();
+            entity.closest('fieldset').find('label.label.admin__field-label').css('visibility','hidden');
+            $(entity).val('amfile_files_import');
+            varienImport.handleEntityTypeSelector();
+            $('#sample-file-link').attr('href', '<?= $block->escapeUrl($block->getGenerateUrl()) ?>');
+            //]]>
+        }
+    );
+</script>
+
+<script>
+    require(['jquery', 'mage/translate'], function ($, $t) {
+        $('#sample-file-link').text($t('Generate Import File'));
+        var amInterval = setInterval(function() {
+            if (!$('#edit_form').is(':visible')) {
+                $('.action-next-step').attr('disabled', false);
+                $('.action-next-step').click(function () {
+                    location.href='<?= $block->escapeUrl($block->getFinishLink()); ?>';
+                });
+
+                $('.action-next-step').find('span').text($t('Finish'));
+                $('.action-back-step').hide();
+                $('.action-wrap .action-cancel').hide();
+                clearInterval(amInterval);
+            }
+        }, 500);
+    })
+</script>

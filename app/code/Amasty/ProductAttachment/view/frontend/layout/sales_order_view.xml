@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ProductAttachment
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="additional.product.info">
+            <block name="amfile.order.attachment" class="Amasty\ProductAttachment\Block\Order\View\Attachments" template="Amasty_ProductAttachment::order/view/item_attachments.phtml" />
+        </referenceBlock>
+    </body>
+</page>

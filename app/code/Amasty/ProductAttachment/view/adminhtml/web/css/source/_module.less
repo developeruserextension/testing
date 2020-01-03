@@ -1,0 +1,51 @@
+& when (@media-common = true) {
+    .amasty-dynamic-rows {
+        .admin__field > .admin__field-label {
+            display: none !important;
+        }
+    }
+    .amasty-file-rows {
+        .admin__actions-switch + .admin__field-service {
+            .lib-css(min-width, 12rem);
+        }
+
+        .data-grid-actions-cell {
+            .lib-css(vertical-align, middle);
+        }
+
+        .action-delete {
+            &:hover {
+                .lib-css(text-decoration, none);
+            }
+
+            &:extend(.abs-action-delete all);
+            .lib-css(font-size, 2rem);
+            .lib-css(margin, 0);
+        }
+    }
+
+    .amasty-file-uploader-preview {
+        .preview-image {
+            img {
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                max-height: 100%;
+                max-width: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+            }
+        }
+    }
+
+    .amfile-steps-wizard {
+        .steps-wizard-navigation {
+            padding: 0!important;
+            margin: 0!important;
+            border: 0!important;
+            background: transparent!important;
+        }
+    }
+}

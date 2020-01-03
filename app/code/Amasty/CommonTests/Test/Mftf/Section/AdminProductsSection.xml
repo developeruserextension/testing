@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_CommonTests
+ */
+-->
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
+
+    <section name="AdminGridProductsSection">
+        <element name="FiltersButton" type="button" selector="//div[@class='data-grid-filters-action-wrap']/button[text()='Filters']" timeout="30"/>
+        <element name="InputNameFilters" type="input" selector="//input[@name='name']" timeout="30"/>
+        <element name="ApplyFiltersButton" type="button" selector="//button[@data-action='grid-filter-apply']" timeout="30"/>
+    </section>
+
+    <section name="AdminProductSection">
+        <element name="Save" type="button" selector="//button[@id='save-button']" timeout="30"/>
+        <element name="Status" type="text" selector="//div[@data-index='status']" timeout="50"/>
+        <element name="ProductSku" type="input" selector="//input[@name='product[sku]']" timeout="30"/>
+    </section>
+
+</sections>

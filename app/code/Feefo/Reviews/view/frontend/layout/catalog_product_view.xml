@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.extrahint">
+            <block class="Feefo\Reviews\Block\ProductRating" name="product.info.addtocart.feefoRating" before="-">
+                <arguments>
+                    <argument name="placement" translate="true" xsi:type="string">AUTO</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <block class="Feefo\Reviews\Block\ReviewsWidget" name="feefo.reviews.tab" as="feefo.reviews" after="additional" group="detailed_info" >
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Feefo Reviews</argument>
+                    <argument name="placement" translate="true" xsi:type="string">AUTO</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Feefo\Reviews\Block\ReviewsWidget" name="feefo.reviews" after="-" >
+                <arguments>
+                    <argument name="placement" translate="true" xsi:type="string">AUTO</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
